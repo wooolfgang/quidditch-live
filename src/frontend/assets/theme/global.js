@@ -17,6 +17,7 @@ const globalStyle = () => injectGlobal`
     height: 100vh;
     width: 100vw;
     color: #333;
+    font-family: 'Source Serif Pro', 'serif';
   }
 
   h1 {
