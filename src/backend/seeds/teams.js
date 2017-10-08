@@ -8,7 +8,7 @@ const seed = async () => {
     {
       _id: ObjectId('91D7D8311871D64ED6AF912E'),
       name: 'Harry and the Bad Boys Club',
-      players: [
+      playerIds: [
         ObjectId('E0A498A0C28C896A3F52FC7F'),
         ObjectId('3B86128FCC563135C3348DDC'),
         ObjectId('B7E9DFEC5407E9069DF62143'),
@@ -21,7 +21,7 @@ const seed = async () => {
     {
       _id: ObjectId('F296C2DFC3AB1DB20648C618'),
       name: 'The Dinner Club',
-      players: [
+      playerIds: [
         ObjectId('40DFEA25AC73B9F9934427B8'),
         ObjectId('6DF6E1368BF730E629D52ABD'),
         ObjectId('92BB4BCD2B37EEF5C26C9097'),

@@ -1,4 +1,5 @@
 import feathersMongo from 'feathers-mongodb';
+import { populate } from 'feathers-hooks-common';
 
 function teamService(db) {
   return function execute() {
@@ -20,6 +21,7 @@ function teamService(db) {
         update: [],
         patch: [],
         remove: [],
+        all: [],
       },
     });
   };
