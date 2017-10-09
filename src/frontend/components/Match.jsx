@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { getTeams } from '../reducers';
 
 const StyledDiv = styled.div`
   display: inline-block;
@@ -16,10 +14,6 @@ const StyledDiv = styled.div`
   cursor: pointer;
 `;
 
-const mapStateToProps = (state, { match: { teams } }) => ({
-  teams: getTeams(state, teams)
-})
-
 const Match = ({ match, teams }) => (
   <StyledDiv>
     <span> {teams[0].name}  VS  {teams[1].name} </span>
@@ -27,4 +21,4 @@ const Match = ({ match, teams }) => (
   </StyledDiv>
 );
 
-export default connect(mapStateToProps)(Match);
+export default Match;

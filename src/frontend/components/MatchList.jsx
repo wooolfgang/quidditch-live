@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Match from '../containers/Match';
+import MatchContainer from '../containers/MatchContainer';
 
 const StyledDiv = styled.div`
   padding: 40px 40px;
 `
-
 const MatchList = ({ matches }) => {
   if (!matches || matches.length === 0) {
     return <p> Loading ... </p>
@@ -14,7 +13,7 @@ const MatchList = ({ matches }) => {
   return (
     <StyledDiv>
       {
-        matches.map(match => <Match match={match} key={match._id} />)
+        matches.map(match => <MatchContainer match={match} key={match._id} />)
       }
     </StyledDiv>
   );
