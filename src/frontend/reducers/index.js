@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import * as types from '../constants/ActionTypes';
 
-export const entitiesInitState = { entities: { matches: {}, players: {}, teams: {} } };
+export const entitiesInitState = { matches: {}, players: {}, teams: {} };
 
 export const entities = (state = entitiesInitState, action) => {
   switch (action.type) {
