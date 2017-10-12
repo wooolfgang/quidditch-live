@@ -1,3 +1,18 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.2.0...v0.3.0) (2017-10-12)
+
+
+### Bug Fixes
+
+* Fix wrong initial state on entities reducer ([74fec34](https://gitlab.com/wooolfgang/quidditch/commit/74fec34))
+
+
+### Features
+
+* Create MatchHandler view ([40ebd47](https://gitlab.com/wooolfgang/quidditch/commit/40ebd47))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://gitlab.com/wooolfgang/quidditch/compare/v0.2.0...v0.2.1) (2017-10-10)
 
