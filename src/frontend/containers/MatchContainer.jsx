@@ -4,7 +4,7 @@ import Match from '../components/Match';
 
 const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
-  teams: getTeams(state, ownProps.match.teams),
+  teams: getTeams(state.entities.teams, ownProps.match.teams),
 });
 
 const MatchContainer = connect(mapStateToProps)(Match);

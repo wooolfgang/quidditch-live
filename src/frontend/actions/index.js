@@ -11,4 +11,3 @@ export const fetchMatches = () => async (dispatch) => {
   const matches = await client.service('api/matches').find();
   return dispatch(receiveMatches(normalize(matches, schema.matchListSchema)));
 };
-

@@ -5,7 +5,7 @@ import { getMatches } from '../reducers';
 import { fetchMatches } from '../actions';
 
 const mapStateToProps = state => ({
-  matches: getMatches(state),
+  matches: getMatches(state.entities.matches, state.result),
 });
 
 class VisibileMatchList extends React.Component {
