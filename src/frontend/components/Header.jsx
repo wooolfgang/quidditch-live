@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
 
 const Header = () => (
   <StyledDiv>
-    <h1> Quidditch Live! </h1>
+    <h1> Quidditch Live </h1>
   </StyledDiv>
 );
 

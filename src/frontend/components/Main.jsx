@@ -1,10 +1,10 @@
 import React from 'react';
 import VisibleMatchList from '../containers/VisibleMatchList';
 
-const App = () => (
+const Main = () => (
   <div>
     <VisibleMatchList />
   </div>
 );
 
-export default App;
+export default Main;
