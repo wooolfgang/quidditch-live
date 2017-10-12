@@ -1,6 +1,6 @@
 import { normalize } from 'normalizr';
 import deepFreeze from 'deep-freeze';
-import { result, isFetching, filterById, filterByIds } from '../../src/frontend/reducers';
+import { result, isFetching, filterById, filterByIds, computeTeamScore } from '../../src/frontend/reducers';
 import * as types from '../../src/frontend/constants/ActionTypes';
 import { matchListSchema } from '../../src/frontend/actions/schema';
 
@@ -64,3 +64,16 @@ describe('filterByIds', () => {
     expect(filterByIds(array, [1, 2])).toEqual([{ id: 1, name: 'Ex' }, { id: 2, name: 'Bo' }]);
   })
 });
+
+describe('computeScore', () => {
+  it('Outputs the score based on the plays made', () => {
+    const plays = [
+      { action: 'GOAL_MADE', teamId: '1' },
+      { action: 'GOAL_MADE', teamId: '2' },
+      { action: 'GOAL_MADE', teamId: '1' },
+      { action: 'GOAL_MISSED', teamId: '2' },
+      { action: 'GOAL_MADE', teamId: '1' }
+    ]
+    expect(computeTeamScore(plays, '1')).toEqual(30);
+  })
+})

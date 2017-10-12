@@ -6,10 +6,12 @@ export const matches = (state = {}, action) => {
     case types.RECEIVE_MATCHES:
       return { ...state, ...action.response.entities.matches };
 
-    case types.SELECT_PLAYER_ACTION:
-
+    case types.ADD_PLAY:
       return {
         ...state,
+        [action.matchId]: {
+          ...state[action.matchId], plays: state[action.matchId].plays.concat(action.play),
+        },
       };
 
     default:
