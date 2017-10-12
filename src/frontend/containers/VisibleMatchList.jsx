@@ -1,22 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MatchList from '../components/MatchList';
-import { getMatches } from '../reducers';
+import { filterByIds } from '../reducers';
 import { fetchMatches } from '../actions';
-
-const mapStateToProps = state => ({
-  matches: getMatches(state.entities.matches, state.result),
-});
+import Spinner from '../components/Spinner';
 
 class VisibileMatchList extends React.Component {
+  componentDidMount() {
+    fetchMatches();
+  }
+
   render() {
-    const { matches } = this.props;
+    const { matches, isFetching } = this.props;
     return (
-      <MatchList matches={matches} />
+      <div>
+        {isFetching ? <Spinner /> : <MatchList matches={matches} />}
+      </div>
     )
   }
 }
 
-VisibileMatchList = connect(mapStateToProps)(VisibileMatchList);
+const mapStateToProps = state => ({
+  matches: filterByIds(state.entities.matches, state.result),
+  isFetching: state.isFetching,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchMatches: dispatch(fetchMatches())
+})
+
+VisibileMatchList = connect(mapStateToProps, mapDispatchToProps)(VisibileMatchList);
 export default VisibileMatchList;
 

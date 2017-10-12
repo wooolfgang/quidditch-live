@@ -1,7 +1,6 @@
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import { fetchMatches } from './actions';
 import rootReducer from './reducers';
 
 const middlewares = [thunkMiddleware];
@@ -15,5 +14,4 @@ const store = createStore(
   applyMiddleware(...middlewares),
 );
 
-store.dispatch(fetchMatches());
 export default store;

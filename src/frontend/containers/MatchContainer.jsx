@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { getTeams } from '../reducers';
+import { filterByIds } from '../reducers';
 import Match from '../components/Match';
 
 const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
-  teams: getTeams(state.entities.teams, ownProps.match.teams),
+  teams: filterByIds(state.entities.teams, ownProps.match.teams),
 });
 
 const MatchContainer = connect(mapStateToProps)(Match);

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { getTeamById } from '../../reducers';
 
 const Heading = styled.div`
   display: flex;
@@ -31,9 +29,7 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-let Middle;
-
-Middle = ({ teamA, teamB, match, onActionSelect }) => (
+const Middle = ({ teamA, teamB, match, onActionSelect, submitPlay }) => (
   <div>
     <Heading>
       <h3>{teamA.name} </h3>
@@ -47,14 +43,8 @@ Middle = ({ teamA, teamB, match, onActionSelect }) => (
       <p onClick={() => onActionSelect('SNITCH_APPEARS')}> SNITCH APPEARS </p>
       <p onClick={() => onActionSelect('SNITCH_CAUGHT')}> SNITCH CAUGHT </p>
     </PlaysContainer>
-    <Button> SUBMIT PLAY </Button>
+    <Button onClick={submitPlay}> SUBMIT PLAY </Button>
   </div>
 );
 
-const mapStateToProps = (state, ownProps) => ({
-  teamA: getTeamById(state.entities.teams, ownProps.match.teams[0]),
-  teamB: getTeamById(state.entities.teams, ownProps.match.teams[1]),
-})
-
-Middle = connect(mapStateToProps)(Middle)
 export default Middle;

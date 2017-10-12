@@ -1,14 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Player = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 999px;
-  display: inline-block;
-  border: 1px solid gray;
-  cursor: pointer;
-`
+import Player from './Player';
 
 const Container = styled.div`
   display: flex;
@@ -18,24 +10,64 @@ const Container = styled.div`
   margin-bottom: 15px;
 `;
 
-const Players = () => (
-  <div>
-    <Container>
-      <Player />
-    </Container>
-    <Container>
-      <Player />
-      <Player />
-      <Player />
-    </Container>
-    <Container>
-      <Player />
-      <Player />
-    </Container>
-    <Container>
-      <Player />
-    </Container>
-  </div>
-);
+const Players = ({ players, onPlayerSelect }) => {
+  let seeker = '';
+  let keeper = '';
+  const chasers = [];
+  const beaters = [];
+
+  players.forEach(player => {
+    if (player.type === 'SEEKER') {
+      seeker = player;
+    } else if (player.type === 'KEEPER') {
+      keeper = player;
+    } else if (player.type === 'CHASER') {
+      chasers.push(player);
+    } else if (player.type === 'BEATER') {
+      beaters.push(player);
+    }
+  })
+
+  return (
+    <div>
+      <Container>
+        <Player
+          name={seeker.name}
+          teamId={seeker.teamId}
+          type='SEEKER'
+          onPlayerSelect={onPlayerSelect} />
+      </Container>
+      <Container>
+        {
+          chasers.map(chaser =>
+            <Player
+              name={chaser.name}
+              type='CHASER'
+              onPlayerSelect={onPlayerSelect}
+              key={chaser._id}
+              teamId={chaser.teamId}
+            />
+          )
+        }
+      </Container>
+      <Container>
+        {
+          beaters.map(beater =>
+            <Player
+              name={beater.name}
+              type='BEATER'
+              onPlayerSelect={onPlayerSelect}
+              key={beater._id}
+              teamId={beater.teamId}
+            />
+          )
+        }
+      </Container>
+      <Container>
+        <Player name={keeper.name} type='KEEPER' onPlayerSelect={onPlayerSelect} />
+      </Container>
+    </div>
+  )
+};
 
 export default Players;

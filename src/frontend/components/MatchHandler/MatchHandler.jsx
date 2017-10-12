@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Middle from './Middle';
 import Players from './Players';
+import { filterById, filterByIds } from '../../reducers';
+import { submitPlay } from '../../actions';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -15,15 +18,7 @@ const StyledDiv = styled.div`
   padding: 20px;
 `;
 
-const LeftContainer = styled.div`
-  flex: 1;
-`;
-
-const MiddleContainer = styled.div`
-  flex: 1;
-`;
-
-const RightContainer = styled.div`
+const Container = styled.div`
   flex: 1;
 `;
 
@@ -35,6 +30,7 @@ class MatchHandler extends React.Component {
       currentPlay: {
         action: undefined,
         player: undefined,
+        teamId: undefined,
       }
     }
   }
@@ -45,9 +41,9 @@ class MatchHandler extends React.Component {
     this.setState({ currentPlay: updatedPlay });
   }
 
-  selectPlayer = player => {
+  selectPlayer = (player, teamId) => {
     const { currentPlay } = this.state;
-    const updatedPlay = { ...currentPlay, player: player };
+    const updatedPlay = { ...currentPlay, player, teamId };
     this.setState({ currentPlay: updatedPlay });
   }
 
@@ -56,32 +52,54 @@ class MatchHandler extends React.Component {
     this.setState({ currentPlay: updatedPlay });
   }
 
+  submitPlay = () => {
+    this.props.submitPlay(this.state.currentPlay, this.props.match._id);
+  }
+
   render() {
-    const { match } = this.props;
+    const { match, teamA, teamB, teamAPlayers, teamBPlayers } = this.props;
     return (
       <StyledDiv>
-        <LeftContainer >
+        <Container >
           <Players
             onPlayerSelect={this.selectPlayer}
+            players={teamAPlayers}
           />
-        </LeftContainer>
-        <MiddleContainer>
-          {
-            match ?
-              <Middle
-                match={match}
-                onActionSelect={this.selectAction}
-              /> : undefined
-          }
-        </MiddleContainer>
-        <RightContainer>
+        </Container>
+        <Container>
+          <Middle
+            match={match}
+            teamA={teamA}
+            teamB={teamB}
+            onActionSelect={this.selectAction}
+            submitPlay={this.submitPlay}
+          />
+        </Container>
+        <Container>
           <Players
             onPlayerSelect={this.selectPlayer}
+            players={teamBPlayers}
           />
-        </RightContainer>
+        </Container>
       </StyledDiv>
     );
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  const teamAId = ownProps.match.teams[0];
+  const teamBId = ownProps.match.teams[1];
+  return {
+    teamA: filterById(state.entities.teams, teamAId),
+    teamB: filterById(state.entities.teams, teamBId),
+    teamAPlayers: filterByIds(state.entities.players, state.entities.teams[teamAId].players),
+    teamBPlayers: filterByIds(state.entities.players, state.entities.teams[teamBId].players)
+  };
+}
+
+const mapDispatchToProps = dispatch => ({
+  submitPlay: (play, matchId) => dispatch(submitPlay(play, matchId))
+})
+
+MatchHandler = connect(mapStateToProps, mapDispatchToProps)(MatchHandler);
 export default MatchHandler;

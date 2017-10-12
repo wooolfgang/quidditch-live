@@ -7,8 +7,13 @@ const StyledDiv = styled.div`
   background: #FAFAFA;
 `
 
-const Score = () => (
-  <StyledDiv />
+const Score = ({ teamAScore, teamBScore, teamAName, teamBName }) => (
+  <StyledDiv>
+    <p> {teamAScore} </p>
+    <p> {teamBScore} </p>
+    <p> {teamAName} </p>
+    <p> {teamBName} </p>
+  </StyledDiv>
 );
 
 export default Score;

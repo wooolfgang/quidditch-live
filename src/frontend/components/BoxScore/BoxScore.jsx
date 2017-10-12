@@ -1,15 +1,13 @@
 import React from 'react';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Score from './Score';
+import ScoreContainer from '../../containers/ScoreContainer';
+import PlayByPlay from './PlayByPlay';
 
 const BoxScore = ({ match }) => (
   <div>
-    {
-      match ?
-        <Score />
-        :
-        <h2> No match found </h2>
-    }
+    <ScoreContainer match={match} />
+    <PlayByPlay plays={match.plays} />
   </div>
 );
 
