@@ -10,6 +10,8 @@ const seed = async () => {
       teamIds: [
         ObjectId('91D7D8311871D64ED6AF912E'),
         ObjectId('F296C2DFC3AB1DB20648C618')],
+      plays: [
+      ],
     },
 
   ];
