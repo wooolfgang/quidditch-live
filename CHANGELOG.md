@@ -1,3 +1,14 @@
+<a name="0.5.0"></a>
+# [0.5.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.3.0...v0.5.0) (2017-10-12)
+
+
+### Features
+
+* Add play by play and score view ([39bc679](https://gitlab.com/wooolfgang/quidditch/commit/39bc679))
+* Add submit_play functionality ([db191f4](https://gitlab.com/wooolfgang/quidditch/commit/db191f4))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.3.0...v0.4.0) (2017-10-12)
 
