@@ -1,3 +1,13 @@
+<a name="0.7.0"></a>
+# [0.7.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.6.0...v0.7.0) (2017-10-14)
+
+
+### Features
+
+* Add BoxStats view and improve Play By Play UI ([a8cfc4d](https://gitlab.com/wooolfgang/quidditch/commit/a8cfc4d))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.3.0...v0.6.0) (2017-10-14)
 
