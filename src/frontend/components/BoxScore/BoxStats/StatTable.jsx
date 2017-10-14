@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import StatRowContainer from '../../containers/StatRowContainer';
+import StatRowContainer from '../../../containers/StatRowContainer';
 
 const StyledTable = styled.table`
   text-align: center;

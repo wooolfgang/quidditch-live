@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import StatRow from '../components/BoxScore/StatRow';
+import StatRow from '../components/BoxScore/BoxStats/StatRow';
 import { computePlayerStat } from '../reducers/selectors';
 import * as statTypes from '../constants/StatTypes';
 
