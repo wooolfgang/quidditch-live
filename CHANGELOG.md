@@ -1,3 +1,13 @@
+<a name="0.8.0"></a>
+# [0.8.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.7.0...v0.8.0) (2017-10-14)
+
+
+### Features
+
+* Add real time score update on BoxScore ([2428bc2](https://gitlab.com/wooolfgang/quidditch/commit/2428bc2))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.6.0...v0.7.0) (2017-10-14)
 

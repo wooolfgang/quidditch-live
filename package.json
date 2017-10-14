@@ -1,13 +1,14 @@
 {
   "name": "quidditch",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
     "start:dev": "node -r babel-register src/backend/index.js",
     "seed": "node -r babel-register src/backend/seeds/runSeeds.js",
-    "bundle": "webpack -w"
+    "bundle": "webpack -w",
+    "update:docs": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
