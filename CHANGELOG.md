@@ -1,3 +1,15 @@
+<a name="0.6.0"></a>
+# [0.6.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.3.0...v0.6.0) (2017-10-14)
+
+
+### Features
+
+* Add compute player stats selector function ([8f0b783](https://gitlab.com/wooolfgang/quidditch/commit/8f0b783))
+* Add play by play and score view ([39bc679](https://gitlab.com/wooolfgang/quidditch/commit/39bc679))
+* Add submit_play functionality ([db191f4](https://gitlab.com/wooolfgang/quidditch/commit/db191f4))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.3.0...v0.5.0) (2017-10-12)
 
