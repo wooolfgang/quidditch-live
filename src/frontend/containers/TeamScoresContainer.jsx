@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { computeTeamScore, filterById } from '../reducers/';
-import Score from '../components/BoxScore/Score';
+import { computeTeamScore, filterById } from '../reducers/selectors';
+import TeamScores from '../components/BoxScore/TeamScores';
 
 const mapStateToProps = (state, ownProps) => {
   const teamAId = ownProps.match.teams[0];
@@ -13,5 +13,5 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const ScoreContainer = connect(mapStateToProps)(Score);
-export default ScoreContainer;
+const TeamScoresContainer = connect(mapStateToProps)(TeamScores);
+export default TeamScoresContainer;

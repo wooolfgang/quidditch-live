@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BoxScore from '../components/BoxScore/BoxScore';
 import { fetchMatch } from '../actions';
-import { filterById } from '../reducers';
+import { filterById } from '../reducers/selectors';
 import Spinner from '../components/Spinner';
 
 class BoxScoreContainer extends React.Component {
@@ -19,7 +19,7 @@ class BoxScoreContainer extends React.Component {
   }
 
   render() {
-    const { match, isFetching } = this.props;
+    const { match, isFetching, matchRouter } = this.props;
     return (
       <div>
         {
@@ -30,11 +30,15 @@ class BoxScoreContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  match: filterById(state.entities.matches, ownProps.match.params.id),
-  id: ownProps.match.params.id,
-  isFetching: state.isFetching,
-});
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id || ownProps.match.url.split('/')[2];
+  return {
+    match: filterById(state.entities.matches, id),
+    id,
+    isFetching: state.isFetching,
+    matchRouter: ownProps.match
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   fetchMatch: id => dispatch(fetchMatch(id))

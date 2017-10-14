@@ -15,7 +15,7 @@ const Root = ({ store }) => (
         <div>
           <Header />
           <Route exact path="/" component={Main} />
-          <Route path="/boxscore/:id" component={BoxScoreContainer} />
+          <Route path="/boxscore/:id?/:id?" component={BoxScoreContainer} />
           <Route path="/match/:id" component={MatchHandlerContainer} />
         </div>
       </Router>

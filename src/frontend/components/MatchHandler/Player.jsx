@@ -1,17 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import Avatar from '../Avatar';
 
 const StyledDiv = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 999px;
-  display: inline-block;
-  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   cursor: pointer;
-  padding: 10px;
+
+  span {
+    font-size: 10px;
+  }
 `
-const Player = ({ name, teamId, onPlayerSelect }) => (
-  <StyledDiv onClick={() => onPlayerSelect(name, teamId)}> {name} </StyledDiv>
+const Player = ({ name, teamId, _id, onPlayerSelect }) => (
+  <StyledDiv>
+    <Avatar imageUrl={`https://api.adorable.io/avatars/60/${_id}`} />
+    <span> {name} </span>
+  </StyledDiv>
 );
 
 export default Player;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Middle from './Middle';
 import Players from './Players';
-import { filterById, filterByIds } from '../../reducers';
+import { filterById, filterByIds } from '../../reducers/selectors';
 import { submitPlay } from '../../actions';
 
 const StyledDiv = styled.div`
@@ -30,6 +30,7 @@ class MatchHandler extends React.Component {
       currentPlay: {
         action: undefined,
         player: undefined,
+        playerId: undefined,
         teamId: undefined,
       }
     }
@@ -41,14 +42,14 @@ class MatchHandler extends React.Component {
     this.setState({ currentPlay: updatedPlay });
   }
 
-  selectPlayer = (player, teamId) => {
+  selectPlayer = (player, playerId, teamId) => {
     const { currentPlay } = this.state;
-    const updatedPlay = { ...currentPlay, player, teamId };
+    const updatedPlay = { ...currentPlay, player, playerId, teamId };
     this.setState({ currentPlay: updatedPlay });
   }
 
   resetCurrentPlay = () => {
-    const updatedPlay = { action: undefined, player: undefined };
+    const updatedPlay = { action: undefined, player: undefined, playerId: undefined, teamId: undefined };
     this.setState({ currentPlay: updatedPlay });
   }
 

@@ -32,20 +32,16 @@ const Players = ({ players, onPlayerSelect }) => {
     <div>
       <Container>
         <Player
-          name={seeker.name}
-          teamId={seeker.teamId}
-          type='SEEKER'
+          {...seeker}
           onPlayerSelect={onPlayerSelect} />
       </Container>
       <Container>
         {
           chasers.map(chaser =>
             <Player
-              name={chaser.name}
-              type='CHASER'
+              {...chaser}
               onPlayerSelect={onPlayerSelect}
               key={chaser._id}
-              teamId={chaser.teamId}
             />
           )
         }
@@ -54,17 +50,15 @@ const Players = ({ players, onPlayerSelect }) => {
         {
           beaters.map(beater =>
             <Player
-              name={beater.name}
-              type='BEATER'
+              {...beater}
               onPlayerSelect={onPlayerSelect}
               key={beater._id}
-              teamId={beater.teamId}
             />
           )
         }
       </Container>
       <Container>
-        <Player name={keeper.name} type='KEEPER' onPlayerSelect={onPlayerSelect} />
+        <Player {...keeper} onPlayerSelect={onPlayerSelect} />
       </Container>
     </div>
   )

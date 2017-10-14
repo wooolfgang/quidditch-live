@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { filterByIds } from '../reducers';
+import { filterByIds } from '../reducers/selectors';
 import Match from '../components/Match';
 
 const mapStateToProps = (state, ownProps) => ({

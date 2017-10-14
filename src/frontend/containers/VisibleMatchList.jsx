@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MatchList from '../components/MatchList';
-import { filterByIds } from '../reducers';
+import { filterByIds } from '../reducers/selectors';
 import { fetchMatches } from '../actions';
 import Spinner from '../components/Spinner';
 
