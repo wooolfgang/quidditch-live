@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BoxScore from '../components/BoxScore/BoxScore';
-import { fetchMatch } from '../actions';
+import { fetchMatch, addPlay } from '../actions';
 import { filterById } from '../reducers/selectors';
 import Spinner from '../components/Spinner';
+import client from '../client';
 
 class BoxScoreContainer extends React.Component {
   componentDidMount() {
     const { fetchMatch, id } = this.props;
     fetchMatch(id);
+    this.initListeners();
   }
 
   componentDidUpdate(prevProps) {
@@ -16,6 +18,14 @@ class BoxScoreContainer extends React.Component {
     if (prevProps.id !== id) {
       fetchMatch(id);
     }
+  }
+
+  initListeners() {
+    const { addPlay } = this.props;
+    client.service('api/matches').on('patched', (match) => {
+      const latestPlay = match.plays[match.plays.length - 1];
+      addPlay(latestPlay, match._id);
+    });
   }
 
   render() {
@@ -41,7 +51,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchMatch: id => dispatch(fetchMatch(id))
+  fetchMatch: id => dispatch(fetchMatch(id)),
+  addPlay: (play, matchId) => dispatch(addPlay(play, matchId)),
 })
 
 BoxScoreContainer = connect(mapStateToProps, mapDispatchToProps)(BoxScoreContainer);

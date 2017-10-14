@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
   }
 `
 const Player = ({ name, teamId, _id, onPlayerSelect }) => (
-  <StyledDiv>
+  <StyledDiv onClick={() => onPlayerSelect(name, _id, teamId)}>
     <Avatar imageUrl={`https://api.adorable.io/avatars/60/${_id}`} />
     <span> {name} </span>
   </StyledDiv>
