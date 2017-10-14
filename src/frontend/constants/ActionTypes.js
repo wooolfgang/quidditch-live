@@ -1,3 +1,3 @@
-export const REQUEST_MATCHES = 'REQUEST_MATCHES';
-export const RECEIVE_MATCHES = 'RECEIVE_MATCHES';
-export const ADD_PLAY = 'ADD_PLAY';
+export const MATCH_REQUEST = 'MATCH_REQUEST';
+export const MATCH_RECEIVE = 'MATCH_RECEIVE';
+export const PLAY_ADD = 'PLAY_ADD';

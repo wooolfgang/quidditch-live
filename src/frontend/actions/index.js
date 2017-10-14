@@ -3,10 +3,10 @@ import * as types from '../constants/ActionTypes';
 import client from '../client';
 import * as schema from './schema';
 
-export const requestMatches = () => ({ type: types.REQUEST_MATCHES });
-export const receiveMatches = response => ({ type: types.RECEIVE_MATCHES, response });
+export const requestMatches = () => ({ type: types.MATCH_REQUEST });
+export const receiveMatches = response => ({ type: types.MATCH_RECEIVE, response });
 
-export const addPlay = (play, matchId) => ({ type: types.ADD_PLAY, play, matchId });
+export const addPlay = (play, matchId) => ({ type: types.PLAY_ADD, play, matchId });
 
 export const fetchMatches = () => async (dispatch) => {
   dispatch(requestMatches());

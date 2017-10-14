@@ -4,7 +4,7 @@ import entities from './entities';
 
 export const result = (state = [], action) => {
   switch (action.type) {
-    case types.RECEIVE_MATCHES:
+    case types.MATCH_RECEIVE:
       if (action.response.result instanceof Array) {
         return [...action.response.result];
       }
@@ -17,10 +17,10 @@ export const result = (state = [], action) => {
 
 export const isFetching = (state = false, action) => {
   switch (action.type) {
-    case types.REQUEST_MATCHES:
+    case types.MATCH_REQUEST:
       return true;
 
-    case types.RECEIVE_MATCHES:
+    case types.MATCH_RECEIVE:
       return false;
 
     default:

@@ -20,7 +20,7 @@ describe('Entities', () => {
   it('RECEIVE_MATCHES action populates new matches,players,teams', () => {
     const jsonData = [{ _id: 1, teams: [{ _id: 1, players: [{ _id: 1 }] }] }];
     const normalized = normalize(jsonData, matchListSchema);
-    const action = { type: types.RECEIVE_MATCHES, response: normalized };
+    const action = { type: types.MATCH_RECEIVE, response: normalized };
     const expectedState = { ...initialState, ...normalized.entities };
     expect(entities(initialState, action)).toEqual(expectedState);
   });
@@ -37,7 +37,7 @@ describe('Matches', () => {
 
   it('ADD_PLAY action adds a new play on the plays array of the match', () => {
     const play = { action: 'GOAL' };
-    const action = { type: types.ADD_PLAY, play, matchId: 1 };
+    const action = { type: types.PLAY_ADD, play, matchId: 1 };
     const expectedState = {
       1: {
         _id: 1,

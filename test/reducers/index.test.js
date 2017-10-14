@@ -17,7 +17,7 @@ describe('Result', () => {
     deepFreeze(initialState);
     const jsonData = [{ _id: 1, teams: [{ _id: 1, players: [{ _id: 1 }] }] }];
     const normalized = normalize(jsonData, matchListSchema);
-    const action = { type: types.RECEIVE_MATCHES, response: normalized };
+    const action = { type: types.MATCH_RECEIVE, response: normalized };
     expect(result(initialState, action)).toEqual([1]);
   });
 });
@@ -27,12 +27,12 @@ describe('isFetchin', () => {
   deepFreeze(initialState);
 
   it('Returns true when action REQUEST_MATCHES action is fired', () => {
-    const action = { type: types.REQUEST_MATCHES };
+    const action = { type: types.MATCH_REQUEST };
     expect(isFetching(initialState, action)).toEqual(true);
   })
 
   it('Returns false when action RECEIVE_MATCHES is fired', () => {
-    const action = { type: types.RECEIVE_MATCHES };
+    const action = { type: types.MATCH_RECEIVE };
     expect(isFetching(initialState, action)).toEqual(false);
   })
 })
