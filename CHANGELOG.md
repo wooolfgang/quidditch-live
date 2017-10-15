@@ -1,3 +1,13 @@
+<a name="0.10.0"></a>
+# [0.10.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.9.0...v0.10.0) (2017-10-15)
+
+
+### Features
+
+* Add util fn which derives timestamp to dateformat ([919ebf4](https://gitlab.com/wooolfgang/quidditch/commit/919ebf4))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.8.1...v0.9.0) (2017-10-15)
 
