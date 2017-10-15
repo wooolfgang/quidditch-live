@@ -15,8 +15,8 @@ const StyledDiv = styled.div`
 `;
 
 const Play = styled.div`
-  ${props => props.isTeamA && 'align-self: flex-end;'};
-  ${props => props.isTeamB && 'align-self: flex-start;'};
+  ${props => props.isTeamA && 'align-self: flex-start;'};
+  ${props => props.isTeamB && 'align-self: flex-end;'};
   margin: 0px;
   height: 80px;
 `;
@@ -24,7 +24,7 @@ const Play = styled.div`
 const PlayByPlay = ({ plays, teamAId, teamBId }) => (
   <StyledDiv>
     {
-      plays.map(play =>
+      plays.slice().reverse().map(play =>
         <Play
           isTeamA={teamAId === play.teamId}
           isTeamB={teamBId === play.teamId}
