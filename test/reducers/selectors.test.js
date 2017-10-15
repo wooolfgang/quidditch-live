@@ -1,5 +1,7 @@
-import { filterById, filterByIds, filterByProp, computeTeamScore, computePlayerStat } from '../../src/frontend/reducers/selectors';
+import deepFreeze from 'deep-freeze';
+import { filterById, filterByIds, filterByProp, computeTeamStat, computePlayerStat } from '../../src/frontend/reducers/selectors';
 import * as statTypes from '../../src/frontend/constants/StatTypes';
+import * as playTypes from '../../src/frontend/constants/PlayTypes';
 
 describe('filterById', () => {
   it('Returns a single object based on the id', () => {
@@ -9,6 +11,7 @@ describe('filterById', () => {
         name: 'Potato'
       }
     }
+    deepFreeze(array);
     expect(filterById(array, 1)).toEqual({ id: 1, name: 'Potato' })
   })
 });
@@ -25,20 +28,33 @@ describe('filterByIds', () => {
         name: 'Bo'
       }
     }
+    deepFreeze(array);
     expect(filterByIds(array, [1, 2])).toEqual([{ id: 1, name: 'Ex' }, { id: 2, name: 'Bo' }]);
   })
 });
 
 describe('computeScore', () => {
-  it('Outputs the score based on the plays made', () => {
-    const plays = [
-      { action: 'GOAL_MADE', teamId: '1' },
-      { action: 'GOAL_MADE', teamId: '2' },
-      { action: 'GOAL_MADE', teamId: '1' },
-      { action: 'GOAL_MISSED', teamId: '2' },
-      { action: 'GOAL_MADE', teamId: '1' }
-    ]
-    expect(computeTeamScore(plays, '1')).toEqual(30);
+  const plays = [
+    { action: 'GOAL_MADE', teamId: 1 },
+    { action: 'GOAL_MADE', teamId: 2 },
+    { action: 'GOAL_MADE', teamId: 1 },
+    { action: 'GOAL_MISSED', teamId: 2 },
+    { action: 'GOAL_MADE', teamId: 1 },
+    { action: 'GOAL_MISSED', teamId: 1 },
+    { action: 'GOAL_BLOCKED', teamId: 1 },
+  ];
+  deepFreeze(plays);
+  it('Outputs the correct team score', () => {
+    expect(computeTeamStat(1, plays, statTypes.TEAM_SCORE)).toEqual(30);
+  })
+  it('Outputs the goals made by the team', () => {
+    expect(computeTeamStat(1, plays, statTypes.TEAM_GOALS_MADE)).toEqual(3);
+  })
+  it('Outputs the goal attemps by the team', () => {
+    expect(computeTeamStat(1, plays, statTypes.TEAM_GOALS_ATTEMPS)).toEqual(4);
+  })
+  it('Outputs the blocks made by the team', () => {
+    expect(computeTeamStat(1, plays, statTypes.TEAM_BLOCKS_MADE)).toEqual(1);
   })
 })
 
@@ -50,6 +66,7 @@ describe('filterByProp', () => {
       { id: 3 },
       { id: 1 }
     ];
+    deepFreeze(array);
     expect(filterByProp(array, 'id', 1)).toEqual([{ id: 1 }, { id: 1 }])
   })
 })
@@ -62,6 +79,7 @@ describe('computePlayerStat', () => {
       { action: 'GOAL_MISSED', playerId: 1 },
       { action: 'GOAL_MADE', playerId: 2 }
     ];
+    deepFreeze(plays);
     expect(computePlayerStat(1, plays, statTypes.FIELD_GOAL_MADE)).toEqual(1);
   })
 })
