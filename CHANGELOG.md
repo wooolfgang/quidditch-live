@@ -1,3 +1,14 @@
+<a name="0.11.0"></a>
+# [0.11.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.9.0...v0.11.0) (2017-10-15)
+
+
+### Features
+
+* Add util fn which derives timestamp to dateformat ([919ebf4](https://gitlab.com/wooolfgang/quidditch/commit/919ebf4))
+* Improve Play by Play UI ([841fdb3](https://gitlab.com/wooolfgang/quidditch/commit/841fdb3))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.9.0...v0.10.0) (2017-10-15)
 
