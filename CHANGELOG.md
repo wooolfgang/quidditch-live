@@ -1,3 +1,13 @@
+<a name="0.8.1"></a>
+## [0.8.1](https://gitlab.com/wooolfgang/quidditch/compare/v0.8.0...v0.8.1) (2017-10-15)
+
+
+### Bug Fixes
+
+* Fix bug on wrong team sorting on Play By Play ([2366f9a](https://gitlab.com/wooolfgang/quidditch/commit/2366f9a))
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.7.0...v0.8.0) (2017-10-14)
 
