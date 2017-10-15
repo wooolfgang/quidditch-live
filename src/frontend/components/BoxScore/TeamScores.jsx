@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
   height: 200px;
   width: 100%;
-  background: #FAFAFA;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #333;
+  color: ${props => props.theme.neutralTwo};
+  background: ${props => props.theme.fg};
 `;
 
 const Score = styled.h1`
