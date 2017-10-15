@@ -1,3 +1,13 @@
+<a name="0.9.0"></a>
+# [0.9.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.8.1...v0.9.0) (2017-10-15)
+
+
+### Features
+
+* Add Team Comparison functionality and view ([6e96061](https://gitlab.com/wooolfgang/quidditch/commit/6e96061))
+
+
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://gitlab.com/wooolfgang/quidditch/compare/v0.8.0...v0.8.1) (2017-10-15)
 
