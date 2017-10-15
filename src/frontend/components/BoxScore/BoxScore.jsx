@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import TeamScoresContainer from '../../containers/TeamScoresContainer';
-import PlayByPlay from './PlayByPlay';
+import PlayByPlay from './PlayByPlay/PlayByPlay';
 import Link from './Link';
 import BoxStatsContainer from '../../containers/BoxStatsContainer';
 import TeamComparisonContainer from '../../containers/TeamComparisonContainer';
@@ -30,7 +30,7 @@ const BoxScore = ({ match }) => {
         <Link to={`/boxscore/teamcomparison/${match._id}`} label="TEAM COMPARISON" />
       </Nav>
       <Route exact path="/boxscore/:id" component={() => <BoxStatsContainer teamAId={teamAId} teamBId={teamBId} plays={match.plays} />} />
-      <Route path="/boxscore/playbyplay" component={() => <PlayByPlay teamAId={teamAId} teamBId={teamBId} plays={match.plays} />} />
+      <Route path="/boxscore/playbyplay" component={() => <PlayByPlay teamAId={teamAId} teamBId={teamBId} plays={match.plays} matchStart={match.dateStarted} />} />
       <Route path="/boxscore/teamcomparison" component={() => <TeamComparisonContainer teamAId={teamAId} teamBId={teamBId} plays={match.plays} />} />
     </div>
   )

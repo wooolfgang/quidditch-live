@@ -7,11 +7,12 @@ const StyledDiv = styled.div`
   margin: auto;
   padding-bottom: 50px;
 `
-const Heading = styled.h3`
+const Heading = styled.p`
   font-family: 'Oswald', sans-serif;
   padding: 5px;
   background: ${props => props.theme.bg};
   color: white;
+  font-size: 18px;
 `
 
 const BoxStats = ({ teamAPlayers, teamBPlayers, teamAName, teamBName, plays }) => (

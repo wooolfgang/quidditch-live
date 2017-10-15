@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as playTypes from '../../constants/PlayTypes';
 
 const Heading = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-const Middle = ({ teamA, teamB, match, onActionSelect, submitPlay }) => (
+const PlaysHandler = ({ teamA, teamB, match, onActionSelect, submitPlay }) => (
   <div>
     <Heading>
       <h3>{teamA.name} </h3>
@@ -37,14 +38,14 @@ const Middle = ({ teamA, teamB, match, onActionSelect, submitPlay }) => (
     <h3>{teamB.name} </h3>
     </Heading>
     <PlaysContainer>
-      <p onClick={() => onActionSelect('GOAL_MADE')}> GOAL MADE </p>
-      <p onClick={() => onActionSelect('GOAL_MISSED')}> GOAL MISSED </p>
-      <p onClick={() => onActionSelect('GOAL_BLOCKED')}> GOAL BLOCKED </p>
-      <p onClick={() => onActionSelect('SNITCH_APPEARS')}> SNITCH APPEARS </p>
-      <p onClick={() => onActionSelect('SNITCH_CAUGHT')}> SNITCH CAUGHT </p>
+      <p onClick={() => onActionSelect(playTypes.GOAL_MADE)}> {playTypes.GOAL_MADE} </p>
+      <p onClick={() => onActionSelect(playTypes.GOAL_MISSED)}> {playTypes.GOAL_MISSED} </p>
+      <p onClick={() => onActionSelect(playTypes.GOAL_BLOCKED)}> {playTypes.GOAL_BLOCKED} </p>
+      <p onClick={() => onActionSelect(playTypes.SNITCH_APPEARS)}> {playTypes.SNITCH_APPEARS} </p>
+      <p onClick={() => onActionSelect(playTypes.SNITCH_CAUGHT)}> {playTypes.SNITCH_CAUGHT} </p>
     </PlaysContainer>
     <Button onClick={submitPlay}> SUBMIT PLAY </Button>
   </div>
 );
 
-export default Middle;
+export default PlaysHandler;

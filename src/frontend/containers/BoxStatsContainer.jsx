@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BoxStats from '../components/BoxScore/BoxStats';
+import BoxStats from '../components/BoxScore/BoxStats/BoxStats';
 import { filterByIds, filterById } from '../reducers/selectors';
 import * as statTypes from '../constants/StatTypes';
 

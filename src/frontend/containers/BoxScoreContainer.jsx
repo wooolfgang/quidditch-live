@@ -46,7 +46,7 @@ const mapStateToProps = (state, ownProps) => {
     match: filterById(state.entities.matches, id),
     id,
     isFetching: state.isFetching,
-    matchRouter: ownProps.match
+    matchRouter: ownProps.match,
   }
 };
 

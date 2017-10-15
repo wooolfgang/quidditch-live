@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import Middle from './Middle';
+import PlaysHandler from './PlaysHandler';
 import Players from './Players';
 import { filterById, filterByIds } from '../../reducers/selectors';
 import { submitPlay } from '../../actions';
@@ -68,7 +68,7 @@ class MatchHandler extends React.Component {
           />
         </Container>
         <Container>
-          <Middle
+          <PlaysHandler
             match={match}
             teamA={teamA}
             teamB={teamB}
