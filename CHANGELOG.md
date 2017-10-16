@@ -1,3 +1,13 @@
+<a name="0.12.0"></a>
+# [0.12.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.11.0...v0.12.0) (2017-10-16)
+
+
+### Features
+
+* Add submitPlay offline first functionality ([408631f](https://gitlab.com/wooolfgang/quidditch/commit/408631f))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.9.0...v0.11.0) (2017-10-15)
 
