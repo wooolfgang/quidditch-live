@@ -5,6 +5,7 @@ import * as schema from './schema';
 
 export const requestMatches = () => ({ type: types.MATCH_REQUEST });
 export const receiveMatches = response => ({ type: types.MATCH_RECEIVE, response });
+export const setCurrentMatch = id => ({ type: types.UI_SET_VIEWED_MATCH, matchId: id });
 
 export const submitPlay = (matchId, play) => {
   const playWithTimestamp = { ...play, timestamp: Date.now() };
@@ -38,6 +39,7 @@ export const fetchMatches = () => async (dispatch) => {
 
 export const fetchMatch = id => async (dispatch) => {
   dispatch(requestMatches());
+  dispatch(setCurrentMatch(id));
   const match = await client.service('api/matches').get(id);
   return dispatch(receiveMatches(normalize(match, schema.matchSchema)));
 };

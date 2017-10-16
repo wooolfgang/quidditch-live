@@ -1,6 +1,6 @@
 import { normalize } from 'normalizr';
 import deepFreeze from 'deep-freeze';
-import { result, isFetching } from '../../src/frontend/reducers';
+import { result, isFetching, ui } from '../../src/frontend/reducers';
 import * as types from '../../src/frontend/constants/ActionTypes';
 import { matchListSchema } from '../../src/frontend/actions/schema';
 
@@ -37,3 +37,13 @@ describe('isFetchin', () => {
   })
 })
 
+
+describe('ui', () => {
+  const initialState = {};
+  deepFreeze(initialState);
+
+  it('Returns a new match id when action UI_SET_VIEWED_MATCH is fired', () => {
+    const action = { type: types.UI_SET_VIEWED_MATCH, matchId: 122 };
+    expect(ui(initialState, action)).toEqual({ viewedMatchId: 122 });
+  })
+})

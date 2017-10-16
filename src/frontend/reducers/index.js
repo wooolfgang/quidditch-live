@@ -28,10 +28,21 @@ export const isFetching = (state = false, action) => {
   }
 };
 
+export const ui = (state = {}, action) => {
+  switch (action.type) {
+    case types.UI_SET_VIEWED_MATCH:
+      return { ...state, viewedMatchId: action.matchId };
+
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   entities,
   result,
   isFetching,
+  ui,
 });
 
 export default rootReducer;
