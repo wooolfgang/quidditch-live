@@ -22,9 +22,9 @@ class BoxScoreContainer extends React.Component {
 
   initListeners() {
     const { addPlay } = this.props;
-    client.service('api/matches').on('patched', (match) => {
+    client.service('api/matches').on('updated', (match) => {
       const latestPlay = match.plays[match.plays.length - 1];
-      addPlay(latestPlay, match._id);
+      addPlay(match._id, latestPlay);
     });
   }
 
@@ -52,7 +52,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
   fetchMatch: id => dispatch(fetchMatch(id)),
-  addPlay: (play, matchId) => dispatch(addPlay(play, matchId)),
+  addPlay: (matchId, play) => dispatch(addPlay(matchId, play)),
 })
 
 BoxScoreContainer = connect(mapStateToProps, mapDispatchToProps)(BoxScoreContainer);

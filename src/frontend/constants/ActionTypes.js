@@ -1,3 +1,7 @@
 export const MATCH_REQUEST = 'MATCH_REQUEST';
 export const MATCH_RECEIVE = 'MATCH_RECEIVE';
+export const PLAY_SUBMIT = 'PLAY_SUBMIT';
+export const PLAY_SUBMIT_ROLLBACK = 'PLAY_SUBMIT_ROLLBACK';
+export const PLAY_SUBMIT_COMMIT = 'PLAY_SUBMIT_COMMIT';
 export const PLAY_ADD = 'PLAY_ADD';
+

@@ -1,4 +1,4 @@
-export const getPercentage = (value, total) => (value / total) * 100;
+export const getPercentage = (value = 0, total = 100) => (value / total) * 100;
 export const getTimestampDiff = (timeNow, timeStarted) => timeNow - timeStarted;
 export const timestampToDate = (timestamp) => {
   const ms = 1000;

@@ -6,7 +6,29 @@ import * as schema from './schema';
 export const requestMatches = () => ({ type: types.MATCH_REQUEST });
 export const receiveMatches = response => ({ type: types.MATCH_RECEIVE, response });
 
-export const addPlay = (play, matchId) => ({ type: types.PLAY_ADD, play, matchId });
+export const submitPlay = (matchId, play) => {
+  const playWithTimestamp = { ...play, timestamp: Date.now() };
+  return {
+    type: types.PLAY_SUBMIT,
+    play: playWithTimestamp,
+    matchId,
+    meta: {
+      offline: {
+        effect: {
+          url: '/api/matches', id: matchId, query: { $push: { plays: playWithTimestamp } }, method: 'update',
+        },
+        rollback: { type: types.PLAY_SUBMIT_ROLLBACK },
+        commit: { type: types.PLAY_SUBMIT_COMMIT, play: playWithTimestamp, matchId },
+      },
+    },
+  };
+};
+
+export const addPlay = (matchId, play) => ({
+  type: types.PLAY_ADD,
+  play,
+  matchId,
+});
 
 export const fetchMatches = () => async (dispatch) => {
   dispatch(requestMatches());
@@ -19,14 +41,3 @@ export const fetchMatch = id => async (dispatch) => {
   const match = await client.service('api/matches').get(id);
   return dispatch(receiveMatches(normalize(match, schema.matchSchema)));
 };
-
-export const submitPlay = (play, matchId) => async (dispatch, getState) => {
-  const newPlay = {
-    ...play,
-    timestamp: Date.now(),
-  };
-  const previousPlays = getState().entities.matches[matchId].plays;
-  await client.service('api/matches').patch(matchId, { plays: [...previousPlays, newPlay] });
-  dispatch(addPlay(newPlay, matchId));
-};
-

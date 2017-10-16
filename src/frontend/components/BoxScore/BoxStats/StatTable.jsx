@@ -30,7 +30,7 @@ const StatTable = ({ players, plays }) => (
     </thead>
     <tbody>
       {
-        players.map(player => <StatRowContainer {...player} plays={plays} />)
+        players.map(player => <StatRowContainer {...player} plays={plays} key={player._id} />)
       }
     </tbody>
   </StyledTable>

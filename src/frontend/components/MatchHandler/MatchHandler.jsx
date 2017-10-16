@@ -54,7 +54,7 @@ class MatchHandler extends React.Component {
   }
 
   submitPlay = () => {
-    this.props.submitPlay(this.state.currentPlay, this.props.match._id);
+    this.props.submitPlay(this.props.match._id, this.state.currentPlay);
   }
 
   render() {

@@ -6,6 +6,7 @@ export const matches = (state = {}, action) => {
     case types.MATCH_RECEIVE:
       return { ...state, ...action.response.entities.matches };
 
+    case types.PLAY_SUBMIT:
     case types.PLAY_ADD:
       return {
         ...state,
