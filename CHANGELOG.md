@@ -1,3 +1,13 @@
+<a name="0.13.0"></a>
+# [0.13.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.12.0...v0.13.0) (2017-10-16)
+
+
+### Features
+
+* Improve header UI with login dropdown ([0394fa4](https://gitlab.com/wooolfgang/quidditch/commit/0394fa4))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.11.0...v0.12.0) (2017-10-16)
 
