@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import Main from './Main';
-import Header from './Header';
+import Header from './Header/Header';
 import BoxScoreContainer from '../containers/BoxScoreContainer';
 import MatchHandlerContainer from '../containers/MatchHandlerContainer';
 import theme from '../assets/theme';
