@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import MatchPreviewList from '../components/Main/MatchPreviewList';
 import { filterByIds } from '../reducers/selectors';
-import { fetchMatches } from '../actions';
+import { fetchMatches } from '../actions/MatchActions';
 import Spinner from '../components/Spinner';
 
 class MatchPreviewListContainer extends React.Component {

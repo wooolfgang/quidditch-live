@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BoxScore from '../components/BoxScore/BoxScore';
-import { fetchMatch, addPlay } from '../actions';
+import { fetchMatch, addPlay } from '../actions/MatchActions';
 import { filterById } from '../reducers/selectors';
 import Spinner from '../components/Spinner';
 import client from '../client';

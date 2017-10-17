@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PlaysHandler from './PlaysHandler';
 import Players from './Players';
 import { filterById, filterByIds, computeTeamStat } from '../../reducers/selectors';
-import { submitPlay } from '../../actions';
+import { submitPlay } from '../../actions/MatchActions';
 import * as statTypes from '../../constants/StatTypes';
 
 const StyledDiv = styled.div`

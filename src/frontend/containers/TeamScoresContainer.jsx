@@ -11,7 +11,6 @@ const mapStateToProps = (state, ownProps) => {
     teamBScore: computeTeamStat(teamBId, ownProps.match.plays, statTypes.TEAM_SCORE),
     teamAName: filterById(state.entities.teams, teamAId).name,
     teamBName: filterById(state.entities.teams, teamBId).name,
-
   };
 };
 

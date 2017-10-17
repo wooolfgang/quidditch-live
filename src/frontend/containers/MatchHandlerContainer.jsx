@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMatch } from '../actions';
+import { fetchMatch } from '../actions/MatchActions';
 import { filterById } from '../reducers/selectors';
 import MatchHandler from '../components/MatchHandler/MatchHandler';
-
 import PlayByPlay from '../components/MatchPlays/PlayByPlay';
 import Spinner from '../components/Spinner';
 

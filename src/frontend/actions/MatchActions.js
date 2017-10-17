@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr';
 import * as types from '../constants/ActionTypes';
 import client from '../client';
-import * as schema from './schema';
+import * as schema from '../constants/Schema';
 
 export const requestMatches = () => ({ type: types.MATCH_REQUEST });
 export const receiveMatches = response => ({ type: types.MATCH_RECEIVE, response });
