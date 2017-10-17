@@ -1,3 +1,13 @@
+<a name="0.14.0"></a>
+# [0.14.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.13.0...v0.14.0) (2017-10-17)
+
+
+### Features
+
+* Improve Match Handler UI ([3bd4fc2](https://gitlab.com/wooolfgang/quidditch/commit/3bd4fc2))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.12.0...v0.13.0) (2017-10-16)
 
