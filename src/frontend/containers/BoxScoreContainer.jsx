@@ -20,6 +20,10 @@ class BoxScoreContainer extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    client.service('api/matches').removeListener('updated');
+  }
+
   initListeners() {
     const { addPlay } = this.props;
     client.service('api/matches').on('updated', (match) => {
