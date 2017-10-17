@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '../../Avatar';
-import { getTimestampDiff, timestampToDate } from '../../../../utils';
-import * as playTypes from '../../../constants/PlayTypes';
+import Avatar from '../Avatar';
+import { getTimestampDiff, timestampToDate } from '../../../utils';
+import * as playTypes from '../../constants/PlayTypes';
 
 const Container = styled.div`
   display: flex;
 `;
 
-const Play = styled.div`
+const Row = styled.div`
   margin: 0px;
   height: 80px;
   flex: 1;
@@ -51,15 +51,15 @@ const playStatement = (type, name) => {
   }
 };
 
-const PlayContainer = ({ action, player, timestamp, playerId, isTeamA, isTeamB, matchStartTimestamp }) => (
+const PlayRow = ({ action, player, timestamp, playerId, isTeamA, isTeamB, matchStartTimestamp }) => (
   <Container>
-    <Play isTeamA={isTeamA} isTeamB={isTeamB} >
+    <Row isTeamA={isTeamA} isTeamB={isTeamB} >
       <Avatar imageUrl={`https://api.adorable.io/avatars/60/${playerId}`} />
       <span>{playStatement(action, player)}  </span>
-    </Play>
+    </Row>
     <Time>{timestampToDate(getTimestampDiff(timestamp, matchStartTimestamp))} </Time>
     <Dummy isTeamA={isTeamA} isTeamB={isTeamB} />
   </Container >
 );
 
-export default PlayContainer;
+export default PlayRow;

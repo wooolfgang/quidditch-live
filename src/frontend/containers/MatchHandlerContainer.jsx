@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchMatch } from '../actions';
 import { filterById } from '../reducers/selectors';
 import MatchHandler from '../components/MatchHandler/MatchHandler';
+
+import PlayByPlay from '../components/MatchPlays/PlayByPlay';
 import Spinner from '../components/Spinner';
 
 class MatchHandlerContainer extends React.Component {
@@ -23,7 +25,16 @@ class MatchHandlerContainer extends React.Component {
     return (
       <div>
         {
-          !match ? <Spinner /> : <MatchHandler match={match} />
+          !match ? <Spinner /> : <div>
+            <MatchHandler match={match} />
+            <PlayByPlay
+              teamAId={match.teams[0]}
+              teamBId={match.teams[1]}
+              plays={match.plays}
+              matchStart={match.dateStarted}
+              height="500px"
+            />
+          </div>
         }
       </div>
     )

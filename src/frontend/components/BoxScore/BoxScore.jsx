@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import TeamScoresContainer from '../../containers/TeamScoresContainer';
-import PlayByPlay from './PlayByPlay/PlayByPlay';
+import PlayByPlay from '../MatchPlays/PlayByPlay';
 import Link from './Link';
 import BoxStatsContainer from '../../containers/BoxStatsContainer';
 import TeamComparisonContainer from '../../containers/TeamComparisonContainer';

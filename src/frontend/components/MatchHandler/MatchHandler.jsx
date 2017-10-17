@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PlaysHandler from './PlaysHandler';
 import Players from './Players';
-import { filterById, filterByIds } from '../../reducers/selectors';
+import { filterById, filterByIds, computeTeamStat } from '../../reducers/selectors';
 import { submitPlay } from '../../actions';
+import * as statTypes from '../../constants/StatTypes';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -12,10 +13,12 @@ const StyledDiv = styled.div`
   justify-content: center;
   width: 90%;
   height: 400px;
-  border: 1px solid lightgray;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 30px;
   padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: ${props => props.theme.neutralTwo};
 `;
 
 const Container = styled.div`
@@ -55,31 +58,38 @@ class MatchHandler extends React.Component {
 
   submitPlay = () => {
     this.props.submitPlay(this.props.match._id, this.state.currentPlay);
+    this.resetCurrentPlay();
   }
 
   render() {
-    const { match, teamA, teamB, teamAPlayers, teamBPlayers } = this.props;
+    const { teamA, teamB, teamAPlayers, teamBPlayers, teamAScore, teamBScore } = this.props;
     return (
       <StyledDiv>
         <Container >
           <Players
             onPlayerSelect={this.selectPlayer}
             players={teamAPlayers}
+            currentPlayer={this.state.currentPlay.playerId}
+            currentAction={this.state.currentPlay.action}
           />
         </Container>
         <Container>
           <PlaysHandler
-            match={match}
-            teamA={teamA}
-            teamB={teamB}
+            teamAName={teamA.name}
+            teamBName={teamB.name}
+            teamAScore={teamAScore}
+            teamBScore={teamBScore}
             onActionSelect={this.selectAction}
             submitPlay={this.submitPlay}
+            currentPlay={this.state.currentPlay.action}
           />
         </Container>
         <Container>
           <Players
             onPlayerSelect={this.selectPlayer}
             players={teamBPlayers}
+            currentPlayer={this.state.currentPlay.playerId}
+            currentAction={this.state.currentPlay.action}
           />
         </Container>
       </StyledDiv>
@@ -94,7 +104,9 @@ const mapStateToProps = (state, ownProps) => {
     teamA: filterById(state.entities.teams, teamAId),
     teamB: filterById(state.entities.teams, teamBId),
     teamAPlayers: filterByIds(state.entities.players, state.entities.teams[teamAId].players),
-    teamBPlayers: filterByIds(state.entities.players, state.entities.teams[teamBId].players)
+    teamBPlayers: filterByIds(state.entities.players, state.entities.teams[teamBId].players),
+    teamAScore: computeTeamStat(teamAId, ownProps.match.plays, statTypes.TEAM_SCORE),
+    teamBScore: computeTeamStat(teamBId, ownProps.match.plays, statTypes.TEAM_SCORE),
   };
 }
 

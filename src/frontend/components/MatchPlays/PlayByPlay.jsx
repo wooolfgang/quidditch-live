@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import uuidv1 from 'uuid/v1';
-import Play from './Play';
+import PlayRow from './PlayRow';
 
 const StyledDiv = styled.div`
   margin: auto;
@@ -11,15 +11,17 @@ const StyledDiv = styled.div`
   overflow-y: scroll;
   font-family: 'Oswald', sans-serif;
   font-size: 14px;
+  margin-bottom: 20px;
+  height: ${props => props.height && props.height};
 `;
 
-const PlayByPlay = ({ plays, teamAId, teamBId, matchStart }) => {
+const PlayByPlay = ({ plays, teamAId, teamBId, matchStart, height }) => {
   const matchStartTimestamp = new Date(matchStart).getTime();
   return (
-    <StyledDiv>
+    <StyledDiv height={height}>
       {
         plays.slice().reverse().map(play =>
-          <Play
+          <PlayRow
             {...play}
             key={uuidv1()}
             isTeamA={teamAId === play.teamId}
