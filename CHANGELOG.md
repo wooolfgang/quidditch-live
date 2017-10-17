@@ -1,3 +1,13 @@
+<a name="0.14.1"></a>
+## [0.14.1](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.14.1) (2017-10-17)
+
+
+### Bug Fixes
+
+* Fix double scores on disconnect - reconnect ([fedc6e3](https://gitlab.com/wooolfgang/quidditch/commit/fedc6e3))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.13.0...v0.14.0) (2017-10-17)
 
