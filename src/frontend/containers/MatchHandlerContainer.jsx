@@ -9,13 +9,13 @@ import Spinner from '../components/Spinner';
 class MatchHandlerContainer extends React.Component {
   componentDidMount() {
     const { fetchMatch, id } = this.props;
-    fetchMatch(id);
+    fetchMatch(id, client);
   }
 
   componentDidUpdate(prevProps) {
     const { fetchMatch, id } = this.props;
     if (id !== prevProps.id) {
-      fetchMatch(id);
+      fetchMatch(id, client);
     }
   }
 
@@ -47,7 +47,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMatch: id => dispatch(fetchMatch(id)),
+  fetchMatch: (id, api) => dispatch(fetchMatch(id, api)),
 })
 
 MatchHandlerContainer = connect(mapStateToProps, mapDispatchToProps)(MatchHandlerContainer);

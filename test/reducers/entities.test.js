@@ -2,7 +2,7 @@ import { normalize } from 'normalizr';
 import deepFreeze from 'deep-freeze';
 import entities, { matches } from '../../src/frontend/reducers/entities';
 import * as types from '../../src/frontend/constants/ActionTypes';
-import { matchListSchema } from '../../src/frontend/actions/schema';
+import { matchListSchema } from '../../src/frontend/constants/Schema';
 
 describe('Entities', () => {
   const initialState = {

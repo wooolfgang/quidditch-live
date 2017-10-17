@@ -4,10 +4,11 @@ import MatchPreviewList from '../components/Main/MatchPreviewList';
 import { filterByIds } from '../reducers/selectors';
 import { fetchMatches } from '../actions/MatchActions';
 import Spinner from '../components/Spinner';
+import client from '../client';
 
 class MatchPreviewListContainer extends React.Component {
   componentDidMount() {
-    fetchMatches();
+    fetchMatches(client);
   }
 
   render() {
@@ -26,7 +27,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMatches: dispatch(fetchMatches())
+  fetchMatches: api => dispatch(fetchMatches(api))
 })
 
 MatchPreviewListContainer = connect(mapStateToProps, mapDispatchToProps)(MatchPreviewListContainer);

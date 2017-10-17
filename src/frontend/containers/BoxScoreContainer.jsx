@@ -9,14 +9,14 @@ import client from '../client';
 class BoxScoreContainer extends React.Component {
   componentDidMount() {
     const { fetchMatch, id } = this.props;
-    fetchMatch(id);
+    fetchMatch(id, client);
     this.initListeners();
   }
 
   componentDidUpdate(prevProps) {
     const { fetchMatch, id } = this.props;
     if (prevProps.id !== id) {
-      fetchMatch(id);
+      fetchMatch(id, client);
     }
   }
 
@@ -55,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchMatch: id => dispatch(fetchMatch(id)),
+  fetchMatch: (id, api) => dispatch(fetchMatch(id, api)),
   addPlay: (matchId, play) => dispatch(addPlay(matchId, play)),
 })
 

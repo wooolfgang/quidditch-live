@@ -2,7 +2,7 @@ import { normalize } from 'normalizr';
 import deepFreeze from 'deep-freeze';
 import { result, isFetching, ui } from '../../src/frontend/reducers';
 import * as types from '../../src/frontend/constants/ActionTypes';
-import { matchListSchema } from '../../src/frontend/actions/schema';
+import { matchListSchema } from '../../src/frontend/constants/Schema';
 
 describe('Result', () => {
   it('Returns the initial state when action type is not defined', () => {
