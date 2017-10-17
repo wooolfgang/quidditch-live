@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import MatchContainer from '../containers/MatchContainer';
+import MatchPreviewContainer from '../../containers/MatchPreviewContainer';
 
 const StyledDiv = styled.div`
   padding: 40px 40px;
 `
-const MatchList = ({ matches }) => {
+const MatchPreviewList = ({ matches }) => {
   if (!matches || matches.length === 0) {
     return <p> Loading ... </p>
   }
@@ -13,10 +13,10 @@ const MatchList = ({ matches }) => {
   return (
     <StyledDiv>
       {
-        matches.map(match => <MatchContainer match={match} key={match._id} />)
+        matches.map(match => <MatchPreviewContainer match={match} key={match._id} />)
       }
     </StyledDiv>
   );
 }
 
-export default MatchList;
+export default MatchPreviewList;

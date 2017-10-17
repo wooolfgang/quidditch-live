@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { filterByIds } from '../reducers/selectors';
-import Match from '../components/Match';
+import MatchPreview from '../components/Main/MatchPreview';
 
 const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
   teams: filterByIds(state.entities.teams, ownProps.match.teams),
 });
 
-const MatchContainer = connect(mapStateToProps)(Match);
-export default MatchContainer;
+const MatchPreviewContainer = connect(mapStateToProps)(MatchPreview);
+export default MatchPreviewContainer;

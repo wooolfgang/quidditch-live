@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import MatchList from '../components/MatchList';
+import MatchPreviewList from '../components/Main/MatchPreviewList';
 import { filterByIds } from '../reducers/selectors';
 import { fetchMatches } from '../actions';
 import Spinner from '../components/Spinner';
 
-class VisibileMatchList extends React.Component {
+class MatchPreviewListContainer extends React.Component {
   componentDidMount() {
     fetchMatches();
   }
@@ -14,7 +14,7 @@ class VisibileMatchList extends React.Component {
     const { matches, isFetching } = this.props;
     return (
       <div>
-        {isFetching ? <Spinner /> : <MatchList matches={matches} />}
+        {isFetching ? <Spinner /> : <MatchPreviewList matches={matches} />}
       </div>
     )
   }
@@ -29,6 +29,6 @@ const mapDispatchToProps = dispatch => ({
   fetchMatches: dispatch(fetchMatches())
 })
 
-VisibileMatchList = connect(mapStateToProps, mapDispatchToProps)(VisibileMatchList);
-export default VisibileMatchList;
+MatchPreviewListContainer = connect(mapStateToProps, mapDispatchToProps)(MatchPreviewListContainer);
+export default MatchPreviewListContainer;
 

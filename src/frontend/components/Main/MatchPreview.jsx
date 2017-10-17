@@ -14,7 +14,7 @@ const StyledDiv = styled.div`
   transition: .2s;
 `;
 
-class Match extends React.Component {
+class MatchPreview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,4 +47,4 @@ class Match extends React.Component {
   }
 }
 
-export default Match;
+export default MatchPreview;
