@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "start:dev": "node -r babel-register src/backend/index.js",
     "seed": "node -r babel-register src/backend/seeds/runSeeds.js",
     "bundle": "webpack -w",
