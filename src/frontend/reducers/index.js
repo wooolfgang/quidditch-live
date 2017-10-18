@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import * as types from '../constants/ActionTypes';
 import entities from './entities';
+import user from './user';
 
 export const result = (state = [], action) => {
   switch (action.type) {
@@ -43,6 +44,7 @@ const rootReducer = combineReducers({
   result,
   isFetching,
   ui,
+  user,
 });
 
 export default rootReducer;

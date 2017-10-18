@@ -1,19 +1,20 @@
 import * as types from '../constants/ActionTypes';
 
-const setUser = user => ({ type: types.USER_SET, user });
-const setUserAuthenticated = authenticated => ({ type: types.USER_AUTHENTICATED, authenticated });
-const removeUser = () => ({ type: types.USER_REMOVE });
-const error = e => ({ type: types.USER_AUTHENTICATE_FAIL, error: e });
+export const loginUser = user => ({
+  type: types.USER_AUTHENTICATE_SUCCESS, isAuthenticated: true, user,
+});
+
+export const logoutUser = () => ({ type: types.USER_LOGOUT, isAuthenticated: false });
+export const error = e => ({ type: types.USER_AUTHENTICATE_FAIL, error: e });
 
 export const authenticate = api => async (dispatch) => {
   try {
     const token = await api.authenticate();
     const payload = await api.passport.verifyJWT(token.accessToken);
     const user = await api.service('api/users').get(payload.userId);
-    dispatch(setUser(user));
-    dispatch(setUserAuthenticated(true));
+    return dispatch(loginUser(user));
   } catch (e) {
-    dispatch(error(e));
+    return dispatch(error(e));
   }
 };
 
@@ -26,14 +27,13 @@ export const login = (username, password, api) => async (dispatch) => {
     });
     const payload = await api.passport.verifyJWT(token.accessToken);
     const user = await api.service('api/users').get(payload.userId);
-    dispatch(setUser(user));
-    dispatch(setUserAuthenticated(false));
+    return dispatch(loginUser(user));
   } catch (e) {
-    dispatch(error(e));
+    return dispatch(error(e));
   }
 };
 
 export const logout = api => async (dispatch) => {
   await api.logout();
-  dispatch(removeUser());
+  return dispatch(logoutUser());
 };

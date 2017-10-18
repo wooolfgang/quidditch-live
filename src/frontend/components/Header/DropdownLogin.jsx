@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import client from '../../client';
 
 const Container = styled.div`
   width: 100px;
@@ -65,6 +66,8 @@ class DropdownLogin extends React.Component {
 
     this.state = {
       viewed: false,
+      username: '',
+      password: '',
     }
   }
 
@@ -88,17 +91,31 @@ class DropdownLogin extends React.Component {
     }
   }
 
+  handleLogin = (e) => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    this.props.handleLogin(username, password, client);
+  }
+
+  handleInput = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  }
+
   render() {
     return (
       <div ref={node => this.node = node}>
         <Container>
-          <button ref={node => this.btnNode = node}>Sign In</button>
+          <button ref={node => this.btnNode = node}>
+            Sign In
+          </button>
           <div className="login-container">
-            {this.state.viewed ? <form className="login-form">
-              <input type="text" placeholder="Username" />
-              <input type="password" placeholder="Password" />
-              <input type="submit" value="SUBMIT" />
-            </form> : undefined
+            {
+              this.state.viewed ?
+                <form className="login-form">
+                  <input type="text" id="username" placeholder="Username" onChange={this.handleInput} />
+                  <input type="password" id="password" placeholder="Password" onChange={this.handleInput} />
+                  <input type="submit" value="SUBMIT" onClick={this.handleLogin} />
+                </form> : undefined
             }
           </div>
         </Container>
