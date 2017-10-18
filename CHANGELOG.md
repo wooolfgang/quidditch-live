@@ -1,3 +1,18 @@
+<a name="0.15.0"></a>
+# [0.15.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.15.0) (2017-10-18)
+
+
+### Bug Fixes
+
+* Fix double scores on disconnect - reconnect ([aba4769](https://gitlab.com/wooolfgang/quidditch/commit/aba4769))
+
+
+### Features
+
+* Add login/authentication functionality ([4b5f611](https://gitlab.com/wooolfgang/quidditch/commit/4b5f611))
+
+
+
 <a name="0.14.1"></a>
 ## [0.14.1](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.14.1) (2017-10-17)
 
