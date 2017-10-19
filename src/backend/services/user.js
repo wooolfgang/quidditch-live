@@ -1,6 +1,7 @@
 import feathersMongo from 'feathers-mongodb';
 import { hooks } from 'feathers-authentication-local';
 import auth from 'feathers-authentication';
+import remove from '../../hooks/remove';
 
 function userService(db) {
   return function execute() {
@@ -24,7 +25,7 @@ function userService(db) {
         update: [],
         patch: [],
         remove: [],
-        all: [],
+        all: [remove('password')],
       },
     });
   };
