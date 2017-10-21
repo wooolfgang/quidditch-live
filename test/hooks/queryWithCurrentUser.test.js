@@ -5,7 +5,7 @@ describe('queryWithCurrentUser', () => {
     const hook = {
       type: 'after',
     }
-    expect(() => queryWithCurrentUser({})(hook)).toThrowError('queryWithCurrentUser should be used as a before hook');
+    expect(() => queryWithCurrentUser()(hook)).toThrowError('queryWithCurrentUser should be used as a before hook');
   });
 
   it('Throws an error if user does not exist and is called externally', () => {
@@ -18,7 +18,7 @@ describe('queryWithCurrentUser', () => {
         id: '1'
       }
     }
-    expect(() => queryWithCurrentUser({})(hook)).toThrowError('User does not exist');
+    expect(() => queryWithCurrentUser()(hook)).toThrowError('User does not exist');
   });
 
   it('Returns the hook if user does not exist and is called internally', () => {
@@ -28,7 +28,7 @@ describe('queryWithCurrentUser', () => {
         provider: undefined,
       }
     }
-    expect(queryWithCurrentUser({})(hook)).toEqual(hook);
+    expect(queryWithCurrentUser()(hook)).toEqual(hook);
   });
 
   it('Throws an error if userId does not exist in user object', () => {
@@ -39,7 +39,7 @@ describe('queryWithCurrentUser', () => {
         user: {}
       },
     }
-    expect(() => queryWithCurrentUser({})(hook)).toThrowError('Id field does not exist');
+    expect(() => queryWithCurrentUser()(hook)).toThrowError('Id field does not exist');
   });
 
   it('Returns a new hook with user id in the query property', () => {
@@ -63,6 +63,6 @@ describe('queryWithCurrentUser', () => {
         }
       }
     }
-    expect(queryWithCurrentUser({})(hook)).toEqual(expectedHook);
+    expect(queryWithCurrentUser()(hook)).toEqual(expectedHook);
   });
 });

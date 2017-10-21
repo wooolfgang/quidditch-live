@@ -1,4 +1,6 @@
-const queryWithCurrentUser = ({ idField = '_id', nameAs = 'userId' }) => (hook) => {
+const queryWithCurrentUser = (options = { idField: '_id', nameAs: 'userId' }) => (hook) => {
+  const { idField, nameAs } = options;
+
   if (hook.type !== 'before') {
     throw new Error('queryWithCurrentUser should be used as a before hook');
   }
