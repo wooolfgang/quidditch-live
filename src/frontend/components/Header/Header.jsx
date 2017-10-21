@@ -40,14 +40,14 @@ const Header = ({ handleLogin, handleLogout, user, isAuthenticated }) => (
     <h1> Quidditch Live </h1>
     <Container>
       {
-        (isAuthenticated && user) &&
+        isAuthenticated &&
         <Nav>
           <Link to="/" exact label="Home" />
           <Link to="/matches" exact label="Matches" />
         </Nav>
       }
       {
-        (isAuthenticated && user) ?
+        isAuthenticated ?
           <DropdownUser handleLogout={handleLogout} user={user} /> :
           <DropdownLogin handleLogin={handleLogin} />
       }

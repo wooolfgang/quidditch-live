@@ -16,8 +16,8 @@ const Container = styled.div`
     align-items: center;
     position: absolute;
     margin-top: 10px;
-    width: 100px;
-    height: 70px;
+    width: 110px;
+    height: 85px;
     right: 5px;
     background: white;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -26,6 +26,7 @@ const Container = styled.div`
   #logout-btn {
     border: none;
     color: #333;
+    font-size: 13px;
     background: none;
     outline: none;
     cursor: pointer;

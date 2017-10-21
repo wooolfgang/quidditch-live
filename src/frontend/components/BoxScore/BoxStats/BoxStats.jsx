@@ -9,9 +9,9 @@ const StyledDiv = styled.div`
 `
 const Heading = styled.p`
   font-family: 'Oswald', sans-serif;
-  padding: 5px;
-  background: ${props => props.theme.bg};
-  color: white;
+  padding: 5px 8px;
+  background: ${props => props.theme.neutralOne};
+  color: #333;
   font-size: 18px;
 `
 
