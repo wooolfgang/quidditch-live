@@ -6,7 +6,6 @@ const Container = styled.div`
   width: 100px;
 
   button {
-    font-family: 'Oswald', sans-serif;
     font-size: 15px;
     padding: 8px;
     color: white;
@@ -15,6 +14,7 @@ const Container = styled.div`
     background: none;
     outline: none;
     transition: .5s;
+    font-family: ${props => props.theme.normalFont};
 
     :hover {
       background: white;
@@ -27,6 +27,7 @@ const Container = styled.div`
   }
 
   .login-form {
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     align-items: center;

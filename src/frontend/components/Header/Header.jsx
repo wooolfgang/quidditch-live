@@ -12,11 +12,12 @@ const StyledDiv = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  h1 {
+  p {
     color: white;
-    font-size: 35px;
     position: relative;
     left: 70px;
+    font-family: 'HarryP';
+    font-size: 32px;
   }
 `;
 
@@ -37,7 +38,7 @@ const Nav = styled.div`
 
 const Header = ({ handleLogin, handleLogout, user, isAuthenticated }) => (
   <StyledDiv>
-    <h1> Quidditch Live </h1>
+    <p> Quidditch Live </p>
     <Container>
       {
         isAuthenticated &&

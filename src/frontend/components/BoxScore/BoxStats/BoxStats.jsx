@@ -8,11 +8,11 @@ const StyledDiv = styled.div`
   padding-bottom: 50px;
 `
 const Heading = styled.p`
-  font-family: 'Oswald', sans-serif;
   padding: 5px 8px;
-  background: ${props => props.theme.neutralOne};
   color: #333;
   font-size: 18px;
+  font-family: ${props => props.theme.normalFont};
+  background: ${props => props.theme.neutralOne};
 `
 
 const BoxStats = ({ teamAPlayers, teamBPlayers, teamAName, teamBName, plays }) => (

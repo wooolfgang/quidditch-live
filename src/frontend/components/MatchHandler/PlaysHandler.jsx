@@ -16,9 +16,9 @@ const Heading = styled.div`
   h2 {
     padding: 8px;
     border-radius: 999px;
-    font-family: 'Oswald', sans-serif;
     border: 1px solid ${props => props.theme.neutralThree};
     color: ${props => props.theme.bg};
+    font-family: ${props => props.theme.serifFont};
   }
 `
 

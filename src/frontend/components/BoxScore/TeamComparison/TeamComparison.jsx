@@ -24,9 +24,9 @@ const Middle = styled.div`
   p {
     margin: auto;
     height: 50px; 
-    font-family: 'Oswald', sans-serif;
     font-size: 13px;
     text-align: center;
+    font-family: ${props => props.theme.normalFont};
 
     span {
       padding: 3px;

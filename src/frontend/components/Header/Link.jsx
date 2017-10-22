@@ -10,9 +10,9 @@ const Container = styled.div`
     padding: 7px;
     margin: 0px 2px;
     font-size: 17px;
-    font-family: 'Oswald', sans-serif;
     text-decoration: none !important;
     transition:  0.2s;
+    font-family: ${props => props.theme.normalFont};
 
     :hover {
       background: ${props => props.theme.neutralOne};

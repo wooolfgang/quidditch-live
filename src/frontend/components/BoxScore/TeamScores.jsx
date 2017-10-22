@@ -12,12 +12,12 @@ const StyledDiv = styled.div`
 `;
 
 const Score = styled.h1`
-  font-family: 'Oswald', sans-serif;
   display: inline-block;
-  border: 2px solid ${props => props.theme.neutralThree};
   color: #FAFAFA;
   padding: 8px;
   border-radius: 999px;
+  font-family: ${props => props.theme.serifFont};
+  border: 2px solid ${props => props.theme.neutralThree};
 `;
 
 const TeamName = styled.h2`

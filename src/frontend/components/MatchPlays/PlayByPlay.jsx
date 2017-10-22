@@ -9,10 +9,10 @@ const StyledDiv = styled.div`
   padding: 20px;
   height: 400px;
   overflow-y: scroll;
-  font-family: 'Oswald', sans-serif;
   font-size: 14px;
   margin-bottom: 20px;
   height: ${props => props.height && props.height};
+  font-family: ${props => props.theme.normalFont};
 `;
 
 const PlayByPlay = ({ plays, teamAId, teamBId, matchStart, height }) => {

@@ -11,6 +11,7 @@ const Container = styled.div`
   }
 
   .logout {
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     align-items: center;
