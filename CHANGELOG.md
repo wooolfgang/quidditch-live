@@ -1,3 +1,15 @@
+<a name="0.19.0"></a>
+# [0.19.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.18.0...v0.19.0) (2017-10-22)
+
+
+### Features
+
+* Add restrictToOwner hook ([e98fd39](https://gitlab.com/wooolfgang/quidditch/commit/e98fd39))
+* Implement restrictToOwner on user & match service ([72960ce](https://gitlab.com/wooolfgang/quidditch/commit/72960ce))
+* Improve frontpage ui (Featured match) ([27f1ced](https://gitlab.com/wooolfgang/quidditch/commit/27f1ced))
+
+
+
 <a name="0.18.0"></a>
 # [0.18.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.18.0) (2017-10-22)
 
