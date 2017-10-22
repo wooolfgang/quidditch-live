@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import BoxStats from '../components/BoxScore/BoxStats/BoxStats';
 import { filterByIds, filterById } from '../reducers/selectors';
-import * as statTypes from '../constants/StatTypes';
 
 const mapStateToProps = (state, ownProps) => ({
   teamAPlayers: filterByIds(state.entities.players, state.entities.teams[ownProps.teamAId].players),

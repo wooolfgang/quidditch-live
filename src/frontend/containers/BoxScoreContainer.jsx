@@ -7,9 +7,9 @@ import Spinner from '../components/Spinner';
 import client from '../client';
 
 class BoxScoreContainer extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     const { fetchMatch, id } = this.props;
-    fetchMatch(id, client);
+    await fetchMatch(id, client);
     this.initListeners();
   }
 
@@ -33,11 +33,11 @@ class BoxScoreContainer extends React.Component {
   }
 
   render() {
-    const { match, isFetching, matchRouter } = this.props;
+    const { match, isFetching } = this.props;
     return (
       <div>
         {
-          !match ? <Spinner /> : <BoxScore {...this.props} />
+          (isFetching || !match) ? <Spinner /> : <BoxScore match={match} />
         }
       </div>
     )
@@ -50,7 +50,6 @@ const mapStateToProps = (state, ownProps) => {
     match: filterById(state.entities.matches, id),
     id,
     isFetching: state.isFetching,
-    matchRouter: ownProps.match,
   }
 };
 

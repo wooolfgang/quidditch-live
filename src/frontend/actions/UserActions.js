@@ -14,6 +14,7 @@ export const authenticate = api => async (dispatch) => {
     const user = await api.service('api/users').get(payload.userId);
     return dispatch(loginUser(user));
   } catch (e) {
+    dispatch(logoutUser());
     return dispatch(error(e));
   }
 };
@@ -34,6 +35,10 @@ export const login = (username, password, api) => async (dispatch) => {
 };
 
 export const logout = api => async (dispatch) => {
-  await api.logout();
-  return dispatch(logoutUser());
+  try {
+    await api.logout();
+    return dispatch(logoutUser());
+  } catch (e) {
+    console.log(e);
+  }
 };

@@ -7,8 +7,9 @@ import Spinner from '../components/Spinner';
 import client from '../client';
 
 class MatchPreviewListContainer extends React.Component {
-  componentDidMount() {
-    fetchMatches(client);
+  async componentDidMount() {
+    const { fetchMatches } = this.props;
+    await fetchMatches(client);
   }
 
   render() {

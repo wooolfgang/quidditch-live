@@ -7,9 +7,9 @@ import PlayByPlay from '../components/MatchPlays/PlayByPlay';
 import Spinner from '../components/Spinner';
 
 class MatchHandlerContainer extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     const { fetchMatch, id } = this.props;
-    fetchMatch(id, client);
+    await fetchMatch(id, client);
   }
 
   componentDidUpdate(prevProps) {
@@ -24,7 +24,7 @@ class MatchHandlerContainer extends React.Component {
     return (
       <div>
         {
-          !match ? <Spinner /> : <div>
+          (isFetching || !match) ? <Spinner /> : <div>
             <MatchHandler match={match} />
             <PlayByPlay
               teamAId={match.teams[0]}
