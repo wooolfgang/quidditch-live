@@ -8,11 +8,18 @@ describe('requestMatches', () => {
   });
 });
 
-describe('receiveMatches', () => {
-  it('Returns the currect action', () => {
-    const action = { type: types.MATCH_RECEIVE, response: 'xxx' };
-    expect(actions.receiveMatches('xxx')).toEqual(action);
+describe('receiveMatchesSuccess', () => {
+  it('Returns the cprrect action', () => {
+    const action = { type: types.MATCH_RECEIVE_SUCCESS, response: 'xxx' };
+    expect(actions.receiveMatchesSuccess('xxx')).toEqual(action);
   });
+});
+
+describe('receiveMatchesFail', () => {
+  it('Returns the correct action', () => {
+    const action = { type: types.MATCH_RECEIVE_FAIL, error: 'xxx' };
+    expect(actions.receiveMatchesFail('xxx')).toEqual(action);
+  })
 });
 
 describe('setCurrentMatch', () => {

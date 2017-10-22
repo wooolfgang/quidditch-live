@@ -3,7 +3,7 @@ import * as types from '../constants/ActionTypes';
 
 export const matches = (state = {}, action) => {
   switch (action.type) {
-    case types.MATCH_RECEIVE:
+    case types.MATCH_RECEIVE_SUCCESS:
       return { ...state, ...action.response.entities.matches };
 
     case types.PLAY_SUBMIT:
@@ -22,7 +22,7 @@ export const matches = (state = {}, action) => {
 
 export const players = (state = {}, action) => {
   switch (action.type) {
-    case types.MATCH_RECEIVE:
+    case types.MATCH_RECEIVE_SUCCESS:
       return { ...state, ...action.response.entities.players };
 
     default:
@@ -32,7 +32,7 @@ export const players = (state = {}, action) => {
 
 export const teams = (state = {}, action) => {
   switch (action.type) {
-    case types.MATCH_RECEIVE:
+    case types.MATCH_RECEIVE_SUCCESS:
       return { ...state, ...action.response.entities.teams };
 
     default:

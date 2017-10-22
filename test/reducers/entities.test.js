@@ -20,7 +20,7 @@ describe('Entities', () => {
   it('RECEIVE_MATCHES action populates new matches,players,teams', () => {
     const jsonData = [{ _id: 1, teams: [{ _id: 1, players: [{ _id: 1 }] }] }];
     const normalized = normalize(jsonData, matchListSchema);
-    const action = { type: types.MATCH_RECEIVE, response: normalized };
+    const action = { type: types.MATCH_RECEIVE_SUCCESS, response: normalized };
     const expectedState = { ...initialState, ...normalized.entities };
     expect(entities(initialState, action)).toEqual(expectedState);
   });

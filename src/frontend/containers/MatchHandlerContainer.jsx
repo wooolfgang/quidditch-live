@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchMatch } from '../actions/MatchActions';
-import { filterById } from '../reducers/selectors';
+import { getCurrentMatch } from '../reducers/selectors';
 import MatchHandler from '../components/MatchHandler/MatchHandler';
 import PlayByPlay from '../components/MatchPlays/PlayByPlay';
 import Spinner from '../components/Spinner';
@@ -42,7 +42,7 @@ class MatchHandlerContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   id: ownProps.match.params.id,
-  match: filterById(state.entities.matches, ownProps.match.params.id),
+  match: getCurrentMatch(state),
   isFetching: state.isFetching
 });
 

@@ -3,8 +3,10 @@ import * as types from '../constants/ActionTypes';
 import * as schema from '../constants/Schema';
 
 export const requestMatches = () => ({ type: types.MATCH_REQUEST });
-export const receiveMatches = response => ({ type: types.MATCH_RECEIVE, response });
+export const receiveMatchesSuccess = response => ({ type: types.MATCH_RECEIVE_SUCCESS, response });
+export const receiveMatchesFail = error => ({ type: types.MATCH_RECEIVE_FAIL, error });
 export const setCurrentMatch = id => ({ type: types.UI_SET_VIEWED_MATCH, matchId: id });
+
 export const addPlay = (matchId, play) => ({
   type: types.PLAY_ADD, play, matchId,
 });
@@ -28,14 +30,22 @@ export const submitPlay = (matchId, play) => {
 };
 
 export const fetchMatches = api => async (dispatch) => {
-  dispatch(requestMatches());
-  const matches = await api.service('api/matches').find();
-  return dispatch(receiveMatches(normalize(matches, schema.matchListSchema)));
+  try {
+    dispatch(requestMatches());
+    const matches = await api.service('api/matches').find();
+    return dispatch(receiveMatchesSuccess(normalize(matches, schema.matchListSchema)));
+  } catch (e) {
+    return dispatch(receiveMatchesFail(e));
+  }
 };
 
 export const fetchMatch = (id, api) => async (dispatch) => {
-  dispatch(requestMatches());
-  dispatch(setCurrentMatch(id));
-  const match = await api.service('api/matches').get(id);
-  return dispatch(receiveMatches(normalize(match, schema.matchSchema)));
+  try {
+    dispatch(requestMatches());
+    dispatch(setCurrentMatch(id));
+    const match = await api.service('api/matches').get(id);
+    return dispatch(receiveMatchesSuccess(normalize(match, schema.matchSchema)));
+  } catch (e) {
+    return dispatch(receiveMatchesFail(e));
+  }
 };

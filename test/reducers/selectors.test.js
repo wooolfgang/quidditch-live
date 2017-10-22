@@ -1,7 +1,24 @@
 import deepFreeze from 'deep-freeze';
-import { filterById, filterByIds, filterByProp, computeTeamStat, computePlayerStat } from '../../src/frontend/reducers/selectors';
+import { getCurrentMatch, filterById, filterByIds, filterByProp, computeTeamStat, computePlayerStat } from '../../src/frontend/reducers/selectors';
 import * as statTypes from '../../src/frontend/constants/StatTypes';
 import * as playTypes from '../../src/frontend/constants/PlayTypes';
+
+describe('getCurrentMatch', () => {
+  it('Returns the current match based on the viewed match on the state', () => {
+    const state = {
+      entities: {
+        matches: {
+          1: { id: 1 },
+          2: { id: 2 }
+        }
+      },
+      ui: {
+        viewedMatchId: 1
+      }
+    }
+    expect(getCurrentMatch(state)).toEqual({ id: 1 });
+  });
+});
 
 describe('filterById', () => {
   it('Returns a single object based on the id', () => {

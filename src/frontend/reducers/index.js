@@ -5,7 +5,7 @@ import user from './user';
 
 export const result = (state = [], action) => {
   switch (action.type) {
-    case types.MATCH_RECEIVE:
+    case types.MATCH_RECEIVE_SUCCESS:
       if (action.response.result instanceof Array) {
         return [...action.response.result];
       }
@@ -21,7 +21,10 @@ export const isFetching = (state = false, action) => {
     case types.MATCH_REQUEST:
       return true;
 
-    case types.MATCH_RECEIVE:
+    case types.MATCH_RECEIVE_SUCCESS:
+      return false;
+
+    case types.MATCH_RECEIVE_FAIL:
       return false;
 
     default:

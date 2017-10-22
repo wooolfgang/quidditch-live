@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BoxScore from '../components/BoxScore/BoxScore';
 import { fetchMatch, addPlay } from '../actions/MatchActions';
-import { filterById } from '../reducers/selectors';
+import { getCurrentMatch } from '../reducers/selectors';
 import Spinner from '../components/Spinner';
 import client from '../client';
 
@@ -47,7 +47,7 @@ class BoxScoreContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id || ownProps.match.url.split('/')[2];
   return {
-    match: filterById(state.entities.matches, id),
+    match: getCurrentMatch(state),
     id,
     isFetching: state.isFetching,
   }

@@ -1,6 +1,8 @@
 import * as statTypes from '../constants/StatTypes';
 import * as playTypes from '../constants/PlayTypes';
 
+export const getCurrentMatch = state => state.entities.matches[state.ui.viewedMatchId];
+
 export const filterByIds = (array, ids) => ids.map(id => array[id]);
 export const filterById = (array, id) => array[id];
 export const filterByProp = (array, prop, propValue) => array.filter(arr => arr[prop] === propValue);

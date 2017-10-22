@@ -6,10 +6,6 @@ const StyledDiv = styled.div`
   padding: 40px 40px;
 `
 const MatchPreviewList = ({ matches }) => {
-  if (!matches || matches.length === 0) {
-    return <p> Loading ... </p>
-  }
-
   return (
     <StyledDiv>
       {
