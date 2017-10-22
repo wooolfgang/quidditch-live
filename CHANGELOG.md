@@ -1,3 +1,20 @@
+<a name="0.17.0"></a>
+# [0.17.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.17.0) (2017-10-22)
+
+
+### Bug Fixes
+
+* Fix double scores on disconnect - reconnect ([aba4769](https://gitlab.com/wooolfgang/quidditch/commit/aba4769))
+
+
+### Features
+
+* Add login/authentication functionality ([4b5f611](https://gitlab.com/wooolfgang/quidditch/commit/4b5f611))
+* Add restrictToOwner hook ([e98fd39](https://gitlab.com/wooolfgang/quidditch/commit/e98fd39))
+* Create remove hook / Add remove hook on user pass ([fb866b9](https://gitlab.com/wooolfgang/quidditch/commit/fb866b9))
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.14.0...v0.16.0) (2017-10-19)
 
