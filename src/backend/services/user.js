@@ -2,6 +2,7 @@ import feathersMongo from 'feathers-mongodb';
 import { hooks } from 'feathers-authentication-local';
 import auth from 'feathers-authentication';
 import remove from '../../hooks/remove';
+import restrictToOwner from '../../hooks/restrictToOwner';
 
 function userService(db) {
   return function execute() {
@@ -11,12 +12,13 @@ function userService(db) {
 
     app.service('api/users').hooks({
       before: {
-        find: [auth.hooks.authenticate('jwt')],
-        get: [],
+        find: [],
+        get: [auth.hooks.authenticate('jwt')],
         create: [hooks.hashPassword()],
-        update: [],
-        patch: [],
-        remove: [],
+        update: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        patch: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        remove: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        all: [],
       },
       after: {
         find: [],

@@ -9,8 +9,8 @@ function services(db) {
     const app = this;
 
     app
-      .configure(userService(db))
       .configure(authentication())
+      .configure(userService(db))
       .configure(playerService(db))
       .configure(matchService(db))
       .configure(teamService(db));

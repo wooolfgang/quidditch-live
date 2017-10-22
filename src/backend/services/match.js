@@ -1,5 +1,6 @@
 import feathersMongo from 'feathers-mongodb';
 import { populate } from 'feathers-hooks-common';
+import restrictToOwner from '../../hooks/restrictToOwner';
 
 function matchService(db) {
   return function execute() {
@@ -26,9 +27,9 @@ function matchService(db) {
       before: {
         find: [],
         get: [],
-        update: [],
-        patch: [],
-        remove: [],
+        update: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
+        patch: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
+        remove: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
       },
       after: {
         find: [],
