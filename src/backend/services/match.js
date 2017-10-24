@@ -1,5 +1,6 @@
 import feathersMongo from 'feathers-mongodb';
 import { populate } from 'feathers-hooks-common';
+import auth from 'feathers-authentication';
 import restrictToOwner from '../../hooks/restrictToOwner';
 
 function matchService(db) {
@@ -23,13 +24,18 @@ function matchService(db) {
       },
     };
 
+    const authorization = [
+      auth.hooks.authenticate('jwt'),
+      restrictToOwner({ ownerField: '_id', idField: 'handler' }),
+    ];
+
     app.service('api/matches').hooks({
       before: {
         find: [],
         get: [],
-        update: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
-        patch: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
-        remove: [restrictToOwner({ ownerField: '_id', idField: 'handler' })],
+        update: [...authorization],
+        patch: [...authorization],
+        remove: [...authorization],
       },
       after: {
         find: [],

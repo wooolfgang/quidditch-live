@@ -15,9 +15,9 @@ function userService(db) {
         find: [],
         get: [auth.hooks.authenticate('jwt')],
         create: [hooks.hashPassword()],
-        update: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
-        patch: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
-        remove: [restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        update: [auth.hooks.authenticate('jwt'), restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        patch: [auth.hooks.authenticate('jwt'), restrictToOwner({ ownerField: '_id', idField: '_id' })],
+        remove: [auth.hooks.authenticate('jwt'), restrictToOwner({ ownerField: '_id', idField: '_id' })],
         all: [],
       },
       after: {

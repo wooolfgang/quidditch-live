@@ -1,5 +1,6 @@
 import feathersMongo from 'feathers-mongodb';
-import { populate } from 'feathers-hooks-common';
+import auth from 'feathers-authentication';
+import restrictToRoles from '../../hooks/restrictToRoles';
 
 function teamService(db) {
   return function execute() {
@@ -7,13 +8,18 @@ function teamService(db) {
 
     app.use('api/teams', feathersMongo({ Model: db.collection('teams') }));
 
+    const authorization = [
+      auth.hooks.authenticate('jwt'),
+      restrictToRoles({ roles: ['admin'], roleField: 'roles' }),
+    ];
+
     app.service('api/teams').hooks({
       before: {
         find: [],
         get: [],
-        update: [],
-        patch: [],
-        remove: [],
+        update: [...authorization],
+        patch: [...authorization],
+        remove: [...authorization],
       },
       after: {
         find: [],

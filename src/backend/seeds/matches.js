@@ -41,6 +41,15 @@ const seed = async () => {
       ],
       handler: ObjectId('49e6bd6ea7cbe899397ca50e'),
     },
+    {
+      dateStarted: '2017-10-07T10:57:59.926Z',
+      teamIds: [
+        ObjectId('91D7D8311871D64ED6AF912E'),
+        ObjectId('F296C2DFC3AB1DB20648C618')],
+      plays: [
+      ],
+      handler: ObjectId('49e6bd6ea7cbe899397ca50e'),
+    },
 
   ];
 
