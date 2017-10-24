@@ -1,3 +1,13 @@
+<a name="0.20.0"></a>
+# [0.20.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.19.0...v0.20.0) (2017-10-24)
+
+
+### Features
+
+* Add restrictToRoles hook ([da5e3d6](https://gitlab.com/wooolfgang/quidditch/commit/da5e3d6))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.18.0...v0.19.0) (2017-10-22)
 
