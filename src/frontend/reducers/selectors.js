@@ -25,9 +25,11 @@ export const computeTeamStat = (teamId, plays, statType) => filterByProp(plays, 
 }, 0);
 
 export const computePlayerStat = (playerId, plays, statType) => filterByProp(plays, 'playerId', playerId).reduce((accumulator, play) => {
-  if (statType === statTypes.FIELD_GOAL_MADE && play.action === 'GOAL_MADE') {
+  if (statType === statTypes.FIELD_GOAL_MADE && play.action === playTypes.GOAL_MADE) {
     return accumulator + 1;
-  } else if (statType === statTypes.FIELD_GOAL_ATTEMPS && (play.action === 'GOAL_MADE' || play.action === 'GOAL_MISSED')) {
+  } else if (statType === statTypes.FIELD_GOAL_ATTEMPS && (play.action === playTypes.GOAL_MADE || play.action === playTypes.GOAL_MISSED)) {
+    return accumulator + 1;
+  } else if (statType === statTypes.BLOCK_MADE && play.action === playTypes.GOAL_BLOCKED) {
     return accumulator + 1;
   }
   return accumulator;

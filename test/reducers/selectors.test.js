@@ -94,9 +94,12 @@ describe('computePlayerStat', () => {
       { action: 'GOAL_MADE', playerId: 1 },
       { action: 'GOAL_MADE', playerId: 2 },
       { action: 'GOAL_MISSED', playerId: 1 },
-      { action: 'GOAL_MADE', playerId: 2 }
+      { action: 'GOAL_MADE', playerId: 2 },
+      { action: 'GOAL_BLOCKED', playerId: 1 },
     ];
     deepFreeze(plays);
     expect(computePlayerStat(1, plays, statTypes.FIELD_GOAL_MADE)).toEqual(1);
+    expect(computePlayerStat(1, plays, statTypes.FIELD_GOAL_ATTEMPS)).toEqual(2);
+    expect(computePlayerStat(1, plays, statTypes.BLOCK_MADE)).toEqual(1);
   })
 })
