@@ -16,6 +16,7 @@ const StyledDiv = styled.div`
 const Play = styled.span`
   font-size: 13.5px;
   padding-left: 3px;
+  width: 60%;
 `;
 
 const Time = styled.span`

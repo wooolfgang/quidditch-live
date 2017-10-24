@@ -4,6 +4,8 @@ import StatRowContainer from '../../../containers/StatRowContainer';
 
 const StyledTable = styled.table`
   text-align: center;
+  font-family: ${props => props.theme.normalFont};
+  font-size: 14px;
 
   th {
     width: 200px;

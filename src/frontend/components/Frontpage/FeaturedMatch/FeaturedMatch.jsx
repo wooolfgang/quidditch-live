@@ -28,20 +28,12 @@ const Second = styled.div`
   display: flex;
 `;
 
-const TeamA = styled.div`
+const Team = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 50px;
-`;
-
-const TeamB = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 50px;  
 `;
 
 const TeamName = styled.p`
@@ -64,25 +56,25 @@ const TeamScore = styled.p`
 
 const P = styled.p`
   margin: auto;
-  font-family: ${props => props.theme.normalFont};
   font-size: 18px;
   color: gray;
   padding: 7px;
   border-radius: 5px;
   border: 1px solid ${props => props.theme.neutralThree};  
+  font-family: ${props => props.theme.normalFont};
 `;
 
 const FeaturedMatch = ({ teamAScore, teamBScore, teamAName, teamBName, plays, matchStarted }) => (
   <StyledDiv>
     <First>
-      <TeamA>
+      <Team>
         <TeamName>{teamAName}</TeamName>
         <TeamScore>{teamAScore}</TeamScore>
-      </TeamA>
-      <TeamB>
+      </Team>
+      <Team>
         <TeamName>{teamBName}</TeamName>
         <TeamScore>{teamBScore}</TeamScore>
-      </TeamB>
+      </Team>
     </First>
     <Second>
       {

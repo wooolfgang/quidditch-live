@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 
 const UpperContainer = styled.div`
   height: 50vh;
-  background: ${props => props.theme.darkOne};
+  background: ${props => props.theme.fg};
 `;
 
 const Banner = styled.div`
@@ -18,7 +18,6 @@ const Banner = styled.div`
   margin-bottom: 20px;
   display: flex;
   font-family: ${props => props.theme.normalFont};
-  background: ${props => props.theme.fg};
 
   span {
     color: white;

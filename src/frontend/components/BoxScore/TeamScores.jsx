@@ -14,8 +14,10 @@ const StyledDiv = styled.div`
 const Score = styled.h1`
   display: inline-block;
   color: #FAFAFA;
-  padding: 8px;
+  padding: 3px 11.5px;
   border-radius: 999px;
+  min-width: 35px;
+  text-align: center;
   font-family: ${props => props.theme.serifFont};
   border: 2px solid ${props => props.theme.neutralThree};
 `;
