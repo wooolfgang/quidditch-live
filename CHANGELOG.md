@@ -1,3 +1,14 @@
+<a name="0.21.0"></a>
+# [0.21.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.19.0...v0.21.0) (2017-10-24)
+
+
+### Features
+
+* Add authorization hooks on all services ([5fccee0](https://gitlab.com/wooolfgang/quidditch/commit/5fccee0))
+* Add restrictToRoles hook ([da5e3d6](https://gitlab.com/wooolfgang/quidditch/commit/da5e3d6))
+
+
+
 <a name="0.20.0"></a>
 # [0.20.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.19.0...v0.20.0) (2017-10-24)
 
