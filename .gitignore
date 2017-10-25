@@ -5,3 +5,4 @@ yarn-error.log
 bundle.js
 npm-debug.log
 .DS_Store
+config/production.json
