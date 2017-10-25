@@ -13,11 +13,20 @@ import services from './services';
 import webpackConfig from '../../webpack.config';
 
 const app = feathers();
-const compiler = webpack(webpackConfig);
 
-app
-  .use(webpackMiddleware(compiler))
-  .use(webpackHotMiddleware(compiler));
+if (!process.env.NODE_ENV) {
+  const compiler = webpack(webpackConfig);
+  app.use(webpackMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler));
+}
+
+if (process.env.NODE_ENV) {
+  app.get('*.js', (req, res, next) => {
+    req.url += '.gz';
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
+}
 
 app
   .use(feathers.static(path.join(process.cwd(), 'public')))

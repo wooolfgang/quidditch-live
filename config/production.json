@@ -1,0 +1,13 @@
+{
+  "port": "PORT",
+  "mongoURI": "mongodb://wooolfgang:quidditchwooolfgang321@ds231725.mlab.com:31725/quidditch-live",
+  "auth": {
+    "path": "api/authentication",
+    "service": "api/users",
+    "secret": "xnzcmcnquwe88eijk093uejdklmasfjkldhvkmasdoiu419u3klnsdofh2190380emdsdfoiew4u09§ujem839iekdmoiasur0193ujk",
+    "local": {
+      "usernameField": "username",
+      "passwordField": "password"
+    }
+  }
+}

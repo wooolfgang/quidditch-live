@@ -9,7 +9,14 @@
     "start:dev": "node -r babel-register src/backend/index.js",
     "seed": "node -r babel-register src/backend/seeds/runSeeds.js",
     "bundle": "webpack -w",
-    "update:docs": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "update:docs": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "build": "NODE_ENV=production webpack -p --config webpack.prod.js",
+    "babel": "BABEL_ENV=production babel src -d dist",
+    "heroku-postbuild": "npm install --only=dev && npm run babel && npm run build -p",
+    "start": "node dist/backend/index.js"
+  },
+  "engines": {
+    "node": "8.0.0"
   },
   "repository": {
     "type": "git",
@@ -44,6 +51,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "compression-webpack-plugin": "^1.0.1",
     "feathers": "^2.2.2",
     "feathers-authentication": "^1.2.7",
     "feathers-authentication-client": "^0.3.3",
@@ -56,9 +64,6 @@
     "feathers-rest": "^1.8.0",
     "feathers-socketio": "^2.0.0",
     "file-loader": "^1.1.5",
-    "immutable": "^3.8.2",
-    "joi": "^11.1.1",
-    "joi-browser": "^10.6.1",
     "mongodb": "^2.2.31",
     "normalizr": "^3.2.3",
     "react": "^16.0.0",
