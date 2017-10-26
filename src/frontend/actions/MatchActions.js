@@ -29,17 +29,17 @@ export const submitPlay = (matchId, play) => {
   };
 };
 
-export const fetchMatches = api => async (dispatch) => {
+export const fetchMatches = (api, query = {}) => async (dispatch) => {
   try {
     dispatch(requestMatches());
-    const matches = await api.service('api/matches').find();
+    const matches = await api.service('api/matches').find(query);
     return dispatch(receiveMatchesSuccess(normalize(matches, schema.matchListSchema)));
   } catch (e) {
     return dispatch(receiveMatchesFail(e));
   }
 };
 
-export const fetchMatch = (id, api) => async (dispatch) => {
+export const fetchMatch = (api, id) => async (dispatch) => {
   try {
     dispatch(requestMatches());
     dispatch(setCurrentMatch(id));

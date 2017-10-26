@@ -95,7 +95,7 @@ class DropdownLogin extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
     const { username, password } = this.state;
-    this.props.handleLogin(username, password, client);
+    this.props.handleLogin(client, username, password);
   }
 
   handleInput = (e) => {

@@ -19,7 +19,7 @@ export const authenticate = api => async (dispatch) => {
   }
 };
 
-export const login = (username, password, api) => async (dispatch) => {
+export const login = (api, username, password) => async (dispatch) => {
   try {
     const token = await api.authenticate({
       username,
