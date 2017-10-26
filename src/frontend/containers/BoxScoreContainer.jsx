@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, bool } from 'prop-types';
 import { connect } from 'react-redux';
 import BoxScore from '../components/BoxScore/BoxScore';
 import { fetchMatch, addPlay } from '../actions/MatchActions';
@@ -7,16 +8,21 @@ import Spinner from '../components/Spinner';
 import client from '../client';
 
 class BoxScoreContainer extends React.Component {
+  static propTypes = {
+    match: object,
+    isFetching: bool,
+  }
+
   async componentDidMount() {
     const { fetchMatch, id } = this.props;
     await fetchMatch(client, id);
     this.initListeners();
   }
 
-  componentDidUpdate(prevProps) {
+  async componentDidUpdate(prevProps) {
     const { fetchMatch, id } = this.props;
     if (prevProps.id !== id) {
-      fetchMatch(client, id);
+      await fetchMatch(client, id);
     }
   }
 

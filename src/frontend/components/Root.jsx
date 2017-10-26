@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
@@ -22,5 +23,9 @@ const Root = ({ store }) => (
     </ThemeProvider>
   </Provider>
 );
+
+Root.propTypes = {
+  store: object.isRequired,
+};
 
 export default Root;

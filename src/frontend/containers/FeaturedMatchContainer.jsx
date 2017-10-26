@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { string, array, number } from 'prop-types';
 import { filterById, computeTeamStat } from '../reducers/selectors';
 import FeaturedMatch from '../components/Frontpage/FeaturedMatch/FeaturedMatch';
 import * as statTypes from '../constants/StatTypes';
@@ -17,5 +18,15 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const FeaturedMatchContainer = connect(mapStateToProps)(FeaturedMatch);
+
+FeaturedMatchContainer.propTypes = {
+  teamAScore: number,
+  teamBScore: number,
+  teamAName: string,
+  teamBName: string,
+  plays: array,
+  matchStarted: string,
+};
+
 export default FeaturedMatchContainer;
 

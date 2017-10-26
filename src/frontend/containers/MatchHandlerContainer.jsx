@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, object, bool } from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMatch } from '../actions/MatchActions';
 import { getCurrentMatch } from '../reducers/selectors';
@@ -7,6 +8,12 @@ import PlayByPlay from '../components/MatchPlays/PlayByPlay';
 import Spinner from '../components/Spinner';
 
 class MatchHandlerContainer extends React.Component {
+  static propTypes = {
+    id: string.isRequired,
+    match: object,
+    isFetching: bool.isRequired,
+  }
+
   async componentDidMount() {
     const { fetchMatch, id } = this.props;
     await fetchMatch(client, id);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func } from 'prop-types';
 import styled from 'styled-components';
 import Avatar from '../Avatar';
 import client from '../../client';
@@ -58,12 +59,10 @@ const StyledDiv = styled.div`
 `;
 
 class DropdownUser extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      viewed: false
-    }
+  state = { viewed: false }
+  static propTypes = {
+    user: object.isRequired,
+    handleLogout: func.isRequired,
   }
 
   componentDidMount = () => {

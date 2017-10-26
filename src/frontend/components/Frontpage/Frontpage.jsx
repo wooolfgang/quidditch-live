@@ -1,4 +1,5 @@
 import React from 'react';
+import { array, object } from 'prop-types';
 import styled from 'styled-components';
 import MatchPreviewList from './MatchPreviewList';
 import FeaturedMatchContainer from '../../containers/FeaturedMatchContainer';
@@ -39,5 +40,10 @@ const Frontpage = ({ matches, featuredMatch }) => (
     <MatchPreviewList matches={matches} />
   </StyledDiv>
 );
+
+Frontpage.propTypes = {
+  matches: array.isRequired,
+  featuredMatch: object,
+};
 
 export default Frontpage;

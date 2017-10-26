@@ -1,4 +1,5 @@
 import React from 'react';
+import { array } from 'prop-types';
 import styled from 'styled-components';
 import MatchPreviewContainer from '../../containers/MatchPreviewContainer';
 
@@ -37,5 +38,9 @@ const MatchPreviewList = ({ matches }) => {
     </StyledDiv>
   );
 }
+
+MatchPreviewList.propTypes = {
+  matches: array.isRequired,
+};
 
 export default MatchPreviewList;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { object, func, bool } from 'prop-types';
 import styled from 'styled-components';
 import Link from './Link';
 import DropdownLogin from './DropdownLogin';
@@ -55,5 +56,12 @@ const Header = ({ handleLogin, handleLogout, user, isAuthenticated }) => (
     </Container>
   </StyledDiv>
 );
+
+Header.propTypes = {
+  handleLogin: func.isRequired,
+  handleLogout: func.isRequired,
+  user: object,
+  isAuthenticated: bool.isRequired,
+};
 
 export default Header;

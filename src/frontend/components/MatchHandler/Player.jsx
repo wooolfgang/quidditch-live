@@ -1,4 +1,5 @@
 import React from 'react';
+import { bool, string, func } from 'prop-types';
 import styled from 'styled-components';
 import Avatar from '../Avatar';
 
@@ -23,5 +24,14 @@ const Player = ({ name, teamId, _id, onPlayerSelect, chosen, type }) => (
     <span> {type} </span>
   </StyledDiv>
 );
+
+Player.propTypes = {
+  name: string.isRequired,
+  teamId: string.isRequired,
+  _id: string.isRequired,
+  onPlayerSelect: func,
+  chosen: bool,
+  type: string.isRequired,
+};
 
 export default Player;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { array, string, func } from 'prop-types';
 import styled from 'styled-components';
 import Player from './Player';
 import * as playTypes from '../../constants/PlayTypes';
@@ -78,6 +79,13 @@ const Players = ({ players, onPlayerSelect, currentPlayer, currentAction }) => {
       </Container>
     </div>
   )
+};
+
+Players.propTypes = {
+  players: array.isRequired,
+  onPlayerSelect: func,
+  currentPlayer: string,
+  currentAction: string,
 };
 
 export default Players;

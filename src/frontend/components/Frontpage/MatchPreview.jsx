@@ -1,4 +1,5 @@
 import React from 'react';
+import { number, string } from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -68,11 +69,13 @@ const StyledLink = styled(Link) `
 `;
 
 class MatchPreview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      alternateView: false,
-    }
+  state = { alternateView: false }
+  static propTypes = {
+    teamAScore: number.isRequired,
+    teamBScore: number.isRequired,
+    teamAName: string.isRequired,
+    teamAName: string.isRequired,
+    matchId: string.isRequired,
   }
 
   onHandleHover = (e) => {
@@ -84,7 +87,7 @@ class MatchPreview extends React.Component {
   }
 
   render() {
-    const { teamAScore, teamAName, teamBScore, teamBName, dateStarted, matchId } = this.props;
+    const { teamAScore, teamAName, teamBScore, teamBName, matchId } = this.props;
     return (
       <StyledDiv onMouseEnter={e => this.onHandleHover(e)} onMouseLeave={e => this.onHandleLeave(e)}>
         {
@@ -102,7 +105,7 @@ class MatchPreview extends React.Component {
               </Team>
               <Team>
                 <TeamName> {teamBName} </TeamName>
-                <TeamScore> {teamAScore} </TeamScore>
+                <TeamScore> {teamBScore} </TeamScore>
               </Team>
             </Container>
         }

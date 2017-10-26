@@ -1,4 +1,5 @@
 import React from 'react';
+import { array, bool } from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMatches } from '../actions/MatchActions';
 import { filterByIds } from '../reducers/selectors';
@@ -8,6 +9,11 @@ import Frontpage from '../components/Frontpage/Frontpage';
 import Spinner from '../components/Spinner';
 
 class MainContainer extends React.Component {
+  static propTypes = {
+    isFetching: bool.isRequired,
+    matches: array.isRequired,
+  }
+
   async componentDidMount() {
     const { fetchMatches } = this.props;
     await fetchMatches(client);

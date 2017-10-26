@@ -1,4 +1,5 @@
 import React from 'react';
+import { bool, func, node } from 'prop-types';
 import styled from 'styled-components';
 
 const StyledP = styled.p`
@@ -15,6 +16,12 @@ const StyledP = styled.p`
 const Play = ({ chosen, onClick, children }) => (
   <StyledP chosen={chosen} onClick={onClick}> {children} </StyledP>
 );
+
+Play.propTypes = {
+  chosen: bool,
+  onClick: func.isRequired,
+  children: node
+}
 
 export default Play;
 

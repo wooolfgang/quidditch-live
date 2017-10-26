@@ -1,4 +1,5 @@
 import React from 'react';
+import { bool, number } from 'prop-types';
 import styled from 'styled-components';
 
 const StyledBar = styled.div`
@@ -12,8 +13,15 @@ const StyledBar = styled.div`
   ${props => props.isHigher && `background: ${props.theme.bg};`};
 `;
 
-const Bar = (props) => (
+const Bar = (props = { width, isTeamA, isTeamB, isHigher }) => (
   <StyledBar {...props} />
 );
+
+Bar.propTypes = {
+  width: number.isRequired,
+  isTeamA: bool,
+  isTeamB: bool,
+  isHigher: bool.isRequired
+};
 
 export default Bar;

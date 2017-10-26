@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, number } from 'prop-types';
 import styled from 'styled-components';
 import { getPercentage } from '../../../../utils';
 import Bar from './Bar';
@@ -60,5 +61,18 @@ const TeamComparison = ({ teamAStats, teamBStats }) => {
     </StyledDiv>
   )
 };
+
+TeamComparison.propTypes = {
+  teamAStats: shape({
+    goalsMade: number.isRequired,
+    goalAttemps: number.isRequired,
+    blocks: number.isRequired,
+  }),
+  teamBStats: shape({
+    goalsMade: number.isRequired,
+    goalAttemps: number.isRequired,
+    blocks: number.isRequired,
+  }),
+}
 
 export default TeamComparison;

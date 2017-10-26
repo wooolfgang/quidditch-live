@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 import styled from 'styled-components';
 import { playStatement, getTimestampDiff, timestampToDate } from '../../../../utils';
 import Avatar from '../../Avatar';
@@ -32,8 +33,16 @@ const FeaturedPlay = ({ action, playerId, player, timestamp, matchStarted }) => 
   <StyledDiv>
     <Avatar width="20px " imageUrl={`https://api.adorable.io/avatars/20/${playerId}`} />
     <Play> {playStatement(action, player)}</Play>
-    <Time> {timestampToDate(getTimestampDiff(timestamp, matchStarted))} </Time>
+    <Time> {timestampToDate(getTimestampDiff(timestamp, new Date(matchStarted).getTime()))} </Time>
   </StyledDiv>
 );
+
+FeaturedPlay.propTypes = {
+  action: string.isRequired,
+  playerId: string.isRequired,
+  player: string.isRequired,
+  timestamp: number.isRequired,
+  matchStarted: string.isRequired,
+};
 
 export default FeaturedPlay;

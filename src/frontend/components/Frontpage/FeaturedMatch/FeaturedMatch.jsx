@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number, array } from 'prop-types';
 import styled from 'styled-components';
 import uuidv1 from 'uuid/v1';
 import FeaturedPlay from './FeaturedPlay';
@@ -86,7 +87,7 @@ const FeaturedMatch = ({ teamAScore, teamBScore, teamAName, teamBName, plays, ma
               player={play.player}
               action={play.action}
               timestamp={play.timestamp}
-              matchStarted={new Date(matchStarted).getTime()}
+              matchStarted={matchStarted}
               key={uuidv1()}
             />
           )
@@ -94,5 +95,14 @@ const FeaturedMatch = ({ teamAScore, teamBScore, teamAName, teamBName, plays, ma
     </Second>
   </StyledDiv>
 );
+
+FeaturedMatch.propTypes = {
+  teamAScore: number.isRequired,
+  teamBScore: number.isRequired,
+  teamAName: string.isRequired,
+  teamBName: string.isRequired,
+  plays: array.isRequired,
+  matchStarted: string.isRequired,
+};
 
 export default FeaturedMatch;

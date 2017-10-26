@@ -66,6 +66,7 @@
     "file-loader": "^1.1.5",
     "mongodb": "^2.2.31",
     "normalizr": "^3.2.3",
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",

@@ -1,4 +1,5 @@
 import React from 'react';
+import { object } from 'prop-types';
 import styled from 'styled-components';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import TeamScoresContainer from '../../containers/TeamScoresContainer';
@@ -16,7 +17,7 @@ const Nav = styled.div`
   padding: 10px 0px;
   background: white;
   border-bottom: 1px solid lightgray;
-`
+`;
 
 const BoxScore = ({ match }) => {
   const teamAId = match.teams[0];
@@ -34,6 +35,10 @@ const BoxScore = ({ match }) => {
       <Route path="/boxscore/teamcomparison" component={() => <TeamComparisonContainer teamAId={teamAId} teamBId={teamBId} plays={match.plays} />} />
     </div>
   )
+};
+
+BoxScore.propTypes = {
+  match: object.isRequired,
 };
 
 export default BoxScore;

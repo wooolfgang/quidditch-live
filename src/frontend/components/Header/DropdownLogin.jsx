@@ -1,4 +1,5 @@
 import React from 'react';
+import { func } from 'prop-types';
 import styled from 'styled-components';
 import client from '../../client';
 
@@ -62,14 +63,13 @@ const Container = styled.div`
 `;
 
 class DropdownLogin extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      viewed: false,
-      username: '',
-      password: '',
-    }
+  state = {
+    viewed: false,
+    username: '',
+    password: '',
+  }
+  static propTypes = {
+    handleLogin: func.isRequired,
   }
 
   componentDidMount() {

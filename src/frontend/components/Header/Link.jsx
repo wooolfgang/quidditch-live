@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, bool } from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -33,5 +34,11 @@ const CustomLink = ({ label, to, exact }) => (
     )}
   />
 );
+
+CustomLink.propTypes = {
+  label: string.isRequired,
+  to: string.isRequired,
+  exact: bool
+};
 
 export default CustomLink;

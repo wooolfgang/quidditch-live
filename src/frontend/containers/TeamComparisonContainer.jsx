@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { number, shape } from 'prop-types';
 import TeamComparison from '../components/BoxScore/TeamComparison/TeamComparison';
 import { computeTeamStat } from '../reducers/selectors';
 import * as statTypes from '../constants/StatTypes';
@@ -20,4 +21,18 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const TeamComparisonContainer = connect(mapStateToProps)(TeamComparison);
+
+TeamComparisonContainer.propTypes = {
+  teamAStats: shape({
+    goalsMade: number.isRequired,
+    goalAttemps: number.isRequired,
+    blocks: number.isRequired,
+  }),
+  teamBStats: shape({
+    goalsMade: number.isRequired,
+    goalAttemps: number.isRequired,
+    blocks: number.isRequired,
+  }),
+};
+
 export default TeamComparisonContainer;

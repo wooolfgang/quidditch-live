@@ -1,4 +1,5 @@
 import React from 'react';
+import { number, string } from 'prop-types';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -35,5 +36,12 @@ const TeamScores = ({ teamAScore, teamBScore, teamAName, teamBName }) => (
     <TeamName> {teamBName} </TeamName>
   </StyledDiv>
 );
+
+TeamScores.propTypes = {
+  teamAScore: number.isRequired,
+  teamBScore: number.isRequired,
+  teamAName: string.isRequired,
+  teamBName: string.isRequired,
+};
 
 export default TeamScores;

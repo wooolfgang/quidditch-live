@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { string, number } from 'prop-types';
 import { computeTeamStat, filterById } from '../reducers/selectors';
 import TeamScores from '../components/BoxScore/TeamScores';
 import * as statTypes from '../constants/StatTypes';
@@ -15,4 +16,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const TeamScoresContainer = connect(mapStateToProps)(TeamScores);
+
+TeamScoresContainer.propTypes = {
+  teamAScore: number,
+  teamBScore: number,
+  teamAName: string,
+  teamBName: string,
+};
+
 export default TeamScoresContainer;

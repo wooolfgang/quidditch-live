@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number, bool } from 'prop-types';
 import styled from 'styled-components';
 import Avatar from '../Avatar';
 import { getTimestampDiff, timestampToDate, playStatement } from '../../../utils';
@@ -46,5 +47,15 @@ const PlayRow = ({ action, player, timestamp, playerId, isTeamA, isTeamB, matchS
     <Dummy isTeamA={isTeamA} isTeamB={isTeamB} />
   </Container >
 );
+
+PlayRow.propTypes = {
+  action: string.isRequired,
+  player: string.isRequired,
+  timestamp: number.isRequired,
+  playerId: string.isRequired,
+  isTeamA: bool,
+  isTeamB: bool,
+  matchStartTimestamp: number.isRequired
+};
 
 export default PlayRow;

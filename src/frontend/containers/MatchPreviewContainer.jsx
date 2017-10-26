@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { string, number } from 'prop-types';
 import { filterById, computeTeamStat } from '../reducers/selectors';
 import * as statTypes from '../constants/StatTypes';
 import MatchPreview from '../components/Frontpage/MatchPreview';
@@ -16,6 +17,15 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-
 const MatchPreviewContainer = connect(mapStateToProps)(MatchPreview);
+
+MatchPreviewContainer.propTypes = {
+  matchId: string,
+  dateStarted: string,
+  teamAScore: number,
+  teamBScore: number,
+  teamAName: string,
+  teamBName: string,
+};
+
 export default MatchPreviewContainer;

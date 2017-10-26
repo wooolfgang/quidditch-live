@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number, func } from 'prop-types';
 import styled from 'styled-components';
 import * as playTypes from '../../constants/PlayTypes';
 import Play from './Play';
@@ -65,5 +66,14 @@ const PlaysHandler = ({ teamAName, teamBName, teamAScore, teamBScore, onActionSe
     </Button>
   </div >
 );
+
+PlaysHandler.propTypes = {
+  teamAName: string.isRequired,
+  teamBName: string.isRequired,
+  teamAScore: number.isRequired,
+  onActionSelect: func,
+  submitPlay: func.isRequired,
+  currentPlay: func
+};
 
 export default PlaysHandler;

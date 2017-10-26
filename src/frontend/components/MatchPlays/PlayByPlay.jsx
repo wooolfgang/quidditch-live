@@ -1,4 +1,5 @@
 import React from 'react';
+import { array, string, number } from 'prop-types';
 import styled from 'styled-components';
 import uuidv1 from 'uuid/v1';
 import PlayRow from './PlayRow';
@@ -32,6 +33,14 @@ const PlayByPlay = ({ plays, teamAId, teamBId, matchStart, height }) => {
       }
     </StyledDiv>
   )
+};
+
+PlayByPlay.propTypes = {
+  plays: array.isRequired,
+  teamAId: string.isRequired,
+  teamBId: string.isRequired,
+  matchStart: string.isRequired,
+  height: string,
 };
 
 export default PlayByPlay;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { array } from 'prop-types';
 import styled from 'styled-components';
 import StatRowContainer from '../../../containers/StatRowContainer';
 
@@ -16,7 +17,7 @@ const StyledTable = styled.table`
     width: 200px;
     padding: 5px;
   }
-`
+`;
 
 const StatTable = ({ players, plays }) => (
   <StyledTable>
@@ -37,5 +38,10 @@ const StatTable = ({ players, plays }) => (
     </tbody>
   </StyledTable>
 );
+
+StatTable.propTypes = {
+  players: array.isRequired,
+  plays: array.isRequired,
+};
 
 export default StatTable;

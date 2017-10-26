@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { array, string } from 'prop-types';
 import BoxStats from '../components/BoxScore/BoxStats/BoxStats';
 import { filterByIds, filterById } from '../reducers/selectors';
 
@@ -10,4 +11,12 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const BoxStatsContainer = connect(mapStateToProps)(BoxStats);
+
+BoxStatsContainer.propTypes = {
+  teamAPlayers: array,
+  teamBPlayers: array,
+  teamAName: string,
+  teamBName: string,
+};
+
 export default BoxStatsContainer;

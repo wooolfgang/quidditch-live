@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -15,5 +16,10 @@ const StyledDiv = styled.div`
 const Avatar = ({ imageUrl, width }) => (
   <StyledDiv width={width} imageUrl={imageUrl} />
 );
+
+Avatar.propTypes = {
+  imageUrl: string.isRequired,
+  width: string,
+};
 
 export default Avatar;

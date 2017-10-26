@@ -1,4 +1,5 @@
 import React from 'react';
+import { number, string, array } from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PlaysHandler from './PlaysHandler';
@@ -26,17 +27,21 @@ const Container = styled.div`
 `;
 
 class MatchHandler extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentPlay: {
-        action: undefined,
-        player: undefined,
-        playerId: undefined,
-        teamId: undefined,
-      }
+  state = {
+    currentPlay: {
+      action: undefined,
+      player: undefined,
+      playerId: undefined,
+      teamId: undefined,
     }
+  }
+  static propTypes = {
+    teamAName: string.isRequired,
+    teamBName: string.isRequired,
+    teamAPlayers: array.isRequired,
+    teamBPlayers: array.isRequired,
+    teamAScore: number.isRequired,
+    teamBScore: number.isRequired,
   }
 
   selectAction = action => {
@@ -62,7 +67,7 @@ class MatchHandler extends React.Component {
   }
 
   render() {
-    const { teamA, teamB, teamAPlayers, teamBPlayers, teamAScore, teamBScore } = this.props;
+    const { teamAName, teamBName, teamAPlayers, teamBPlayers, teamAScore, teamBScore } = this.props;
     return (
       <StyledDiv>
         <Container >
@@ -75,8 +80,8 @@ class MatchHandler extends React.Component {
         </Container>
         <Container>
           <PlaysHandler
-            teamAName={teamA.name}
-            teamBName={teamB.name}
+            teamAName={teamAName}
+            teamBName={teamBName}
             teamAScore={teamAScore}
             teamBScore={teamBScore}
             onActionSelect={this.selectAction}
@@ -101,8 +106,8 @@ const mapStateToProps = (state, ownProps) => {
   const teamAId = ownProps.match.teams[0];
   const teamBId = ownProps.match.teams[1];
   return {
-    teamA: filterById(state.entities.teams, teamAId),
-    teamB: filterById(state.entities.teams, teamBId),
+    teamAName: filterById(state.entities.teams, teamAId).name,
+    teamBName: filterById(state.entities.teams, teamBId).name,
     teamAPlayers: filterByIds(state.entities.players, state.entities.teams[teamAId].players),
     teamBPlayers: filterByIds(state.entities.players, state.entities.teams[teamBId].players),
     teamAScore: computeTeamStat(teamAId, ownProps.match.plays, statTypes.TEAM_SCORE),
