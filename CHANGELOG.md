@@ -1,3 +1,44 @@
+<a name="0.22.0"></a>
+# 0.22.0 (2017-10-26)
+
+
+### Bug Fixes
+
+* Fix bug on wrong team sorting on Play By Play ([2366f9a](https://gitlab.com/wooolfgang/quidditch/commit/2366f9a))
+* Fix double scores on disconnect - reconnect ([aba4769](https://gitlab.com/wooolfgang/quidditch/commit/aba4769))
+* Fix player blocks not being computed ([3b460ee](https://gitlab.com/wooolfgang/quidditch/commit/3b460ee)), closes [#2](https://gitlab.com/wooolfgang/quidditch/issues/2)
+* Fix wrong initial state on entities reducer ([74fec34](https://gitlab.com/wooolfgang/quidditch/commit/74fec34))
+
+
+### Features
+
+* Add authentication hooks ([f55dea8](https://gitlab.com/wooolfgang/quidditch/commit/f55dea8))
+* Add authorization hooks on all services ([5fccee0](https://gitlab.com/wooolfgang/quidditch/commit/5fccee0))
+* Add BoxStats view and improve Play By Play UI ([a8cfc4d](https://gitlab.com/wooolfgang/quidditch/commit/a8cfc4d))
+* Add compute player stats selector function ([8f0b783](https://gitlab.com/wooolfgang/quidditch/commit/8f0b783))
+* Add login/authentication functionality ([4b5f611](https://gitlab.com/wooolfgang/quidditch/commit/4b5f611))
+* Add play by play and score view ([39bc679](https://gitlab.com/wooolfgang/quidditch/commit/39bc679))
+* Add queryWithCurrentUser hook ([6cde2a6](https://gitlab.com/wooolfgang/quidditch/commit/6cde2a6))
+* Add real time score update on BoxScore ([2428bc2](https://gitlab.com/wooolfgang/quidditch/commit/2428bc2))
+* Add restrictToOwner hook ([e98fd39](https://gitlab.com/wooolfgang/quidditch/commit/e98fd39))
+* Add restrictToRoles hook ([da5e3d6](https://gitlab.com/wooolfgang/quidditch/commit/da5e3d6))
+* Add submit_play functionality ([db191f4](https://gitlab.com/wooolfgang/quidditch/commit/db191f4))
+* Add submitPlay offline first functionality ([408631f](https://gitlab.com/wooolfgang/quidditch/commit/408631f))
+* Add Team Comparison functionality and view ([6e96061](https://gitlab.com/wooolfgang/quidditch/commit/6e96061))
+* Add the view matches functionality on the frontend ([7b7f2c3](https://gitlab.com/wooolfgang/quidditch/commit/7b7f2c3))
+* Add User Matches container ([05340a0](https://gitlab.com/wooolfgang/quidditch/commit/05340a0))
+* Add util fn which derives timestamp to dateformat ([919ebf4](https://gitlab.com/wooolfgang/quidditch/commit/919ebf4))
+* Create MatchHandler view ([40ebd47](https://gitlab.com/wooolfgang/quidditch/commit/40ebd47))
+* Create remove hook / Add remove hook on user pass ([fb866b9](https://gitlab.com/wooolfgang/quidditch/commit/fb866b9))
+* Implement restrictToOwner on user & match service ([72960ce](https://gitlab.com/wooolfgang/quidditch/commit/72960ce))
+* Improve frontpage ui (Featured match) ([27f1ced](https://gitlab.com/wooolfgang/quidditch/commit/27f1ced))
+* Improve header UI with login dropdown ([0394fa4](https://gitlab.com/wooolfgang/quidditch/commit/0394fa4))
+* Improve Match Handler UI ([3bd4fc2](https://gitlab.com/wooolfgang/quidditch/commit/3bd4fc2))
+* Improve Play by Play UI ([841fdb3](https://gitlab.com/wooolfgang/quidditch/commit/841fdb3))
+* Initial commit ([e0c8655](https://gitlab.com/wooolfgang/quidditch/commit/e0c8655))
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://gitlab.com/wooolfgang/quidditch/compare/v0.19.0...v0.21.0) (2017-10-24)
 
