@@ -12,7 +12,8 @@ export const authenticate = api => async (dispatch) => {
     const token = await api.authenticate();
     const payload = await api.passport.verifyJWT(token.accessToken);
     const user = await api.service('api/users').get(payload.userId);
-    return dispatch(loginUser(user));
+    dispatch(loginUser(user));
+    return user;
   } catch (e) {
     dispatch(logoutUser());
     return dispatch(error(e));
@@ -28,7 +29,8 @@ export const login = (api, username, password) => async (dispatch) => {
     });
     const payload = await api.passport.verifyJWT(token.accessToken);
     const user = await api.service('api/users').get(payload.userId);
-    return dispatch(loginUser(user));
+    dispatch(loginUser(user));
+    return user;
   } catch (e) {
     return dispatch(error(e));
   }

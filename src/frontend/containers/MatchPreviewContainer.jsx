@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   const teamBId = ownProps.match.teams[1];
   return {
     matchId: ownProps.match._id,
-    dateStarted: ownProps.match.dataStarted,
+    dateStarted: ownProps.match.dateStarted,
     teamAScore: computeTeamStat(teamAId, ownProps.match.plays, statTypes.TEAM_SCORE),
     teamBScore: computeTeamStat(teamBId, ownProps.match.plays, statTypes.TEAM_SCORE),
     teamAName: filterById(state.entities.teams, teamAId).name,
