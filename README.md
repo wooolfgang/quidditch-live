@@ -6,8 +6,11 @@ Side-project I did to practice on Redux and realtime implementations using Socke
 ## Getting Started
 
 npm run install
+
 npm run seed:all
+
 npm run start:dev
+
 npm run bundle
 
 ## Contributing
