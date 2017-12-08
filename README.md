@@ -1,10 +1,12 @@
 # Quidditch League
 
 A real-time app for Quidditch matches. 
-http://quidditch-league.herokuapp.com/
-Use username:wooolfgang password:password if you want to try out hosted app.
 
-Side-project I did to practice on Redux and realtime implementations using Socket.io
+http://quidditch-league.herokuapp.com/
+
+Use username:wooolfgang password:password if you want to try out the hosted app.
+
+A little side-project I did to practice on Redux and realtime implementations using Socket.io
 
 ## Getting Started
 
