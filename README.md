@@ -2,7 +2,7 @@
 
 A real-time app for Quidditch matches. 
 
-http://quidditch-league.herokuapp.com/
+![Alt Text](https://media.giphy.com/media/11Bxv2m3rnKPV0O1AU/giphy.gif)
 
 Use username:wooolfgang password:password if you want to try out the hosted app.
 
